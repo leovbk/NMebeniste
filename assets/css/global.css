@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: local('Helvetica'),
+    url(@/assets/fonts/Helvetica-Font/Helvetica.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Newyork';
+  src: local('Newyork'),
+    url(@/assets/fonts/Newyork/Newyork.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Rotterburg';
+  src: local('Rotterburg'),
+    url(@/assets/fonts/Rotterburg/Rotterburg.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Nomark';
+  src: local('Nomark'), url(@/assets/fonts/nomark/Nomark.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica-Bold';
+  src: local('Helvetica-Bold'),
+    url(@/assets/fonts/Helvetica-Font/Helvetica-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir-Next-LT';
+  src: local('Avenir-Next-LT'),
+    url(@/assets/fonts/Avenir-Next-LT/AvenirNextLT.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Sabon Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sabon Regular'),
+    url(@/assets/fonts/Sabon/Sabon.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Sabon Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sabon Italic'),
+    url(@/assets/fonts/Sabon/SabonItalic.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Sabon Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sabon Bold'),
+    url(@/assets/fonts/Sabon/SabonBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Sabon Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sabon Bold Italic'),
+    url(@/assets/fonts/Sabon/SabonBoldItalic.woff) format('woff');
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html,
+body,
+#__nuxt,
+#__layout {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Helvetica, sans-serif;
+  color: #413636;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+html p {
+  margin: 0;
+}
+
+html button {
+  border: 0;
+  background-color: hsla(137, 8%, 95%, 1);
+}
+
+body {
+  background-color: hsla(137, 8%, 95%, 1);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.fontAvenir {
+  font-family: Avenir-Next-LT, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1, h2, h3, h4{
+  margin: 0;
+  padding: 0;
+}
+
+/* couleurs globales
+
+noir : hsla(137, 22%, 13%, 1)
+
+gris : hsla(137, 15%, 13%, 0.6)
+
+blanc : hsla(137, 8%, 95%, 1)
+
+Couleur principale : color: #413636
+ */
