@@ -27,14 +27,8 @@
         </p>
       </div>
     </section>
-    <section class="slideShow">
-      <img
-        v-for="(url, i) in slidePictures"
-        :key="i"
-        :src="url"
-        class="slide"
-      />
-    </section>
+    <SlideShow />
+
     <!-- <section class="prismic">
       <RichText :field="content" />
       <PrismicImage :field="image" />
