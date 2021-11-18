@@ -19,6 +19,12 @@
           vero quisqua"
         </h1>
         <br />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          officia explicabo alias numquam quidem libero eos nam animi quas,
+          quibusdam maiores dicta officiis impedit repudiandae at accusamus
+          porro. Esse, mollitia?
+        </p>
       </div>
     </section>
     <section class="slideShow">
@@ -36,14 +42,21 @@
     </section> -->
 
     <!-- <PrismicLink :field="link"> {{ link.uid }} </PrismicLink> -->
-    <section id="section-paralax">
-      <div id="home-paralax"></div>
-    </section>
     <section>
       <div id="link-container">
         <a id="link-particulier" class="home-section-link" href="">
           PARTICULIER
         </a>
+        <p class="grid-link-text">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quam
+          tenetur beatae doloribus cupiditate perferendis odit quisquam hic
+          delectus eos!
+        </p>
+        <p class="grid-link-text">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quam
+          tenetur beatae doloribus cupiditate perferendis odit quisquam hic
+          delectus eos!
+        </p>
         <a id="link-pro" class="home-section-link" href="">PROFESSIONNEL</a>
       </div>
     </section>
@@ -153,8 +166,9 @@ export default {
   align-items: center;
   justify-content: center;
   color: hsla(137, 8%, 95%, 1);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+
+  /* box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6); */
 }
 
 #title h1 {
@@ -199,6 +213,10 @@ export default {
   margin: 0;
 }
 
+#home-text-container p {
+  font-size: large;
+}
+
 /* #slideshow {
   height: 600px;
   position: relative;
@@ -209,7 +227,8 @@ export default {
 .slideShow {
   position: relative;
   height: 500px;
-  margin: 5vw;
+
+  /* margin: 5vw; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,36 +243,39 @@ export default {
   transition: all 0.7s ease-in-out;
 }
 
-#home-paralax {
-  height: 400px;
-  background: url('https://menuiseriegimbert.fr/contenu/uploads/2019/05/header-accueil.jpg');
-  background-position: center;
-  background-attachment: fixed;
-}
-
 #link-container {
-  height: 500px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  width: 100vw;
+  height: 800px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .home-section-link {
-  height: 300px;
-  width: 550px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
   color: hsla(137, 8%, 95%, 1);
-  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
   font-family: Avenir-Next-LT, sans-serif;
-  font-size: xx-large;
+  font-size: xxx-large;
   flex-wrap: wrap;
   text-decoration: none;
 }
+
+.grid-link-text {
+  color: #413636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  text-align: center;
+}
+
+/* 
 
 .prismic {
   display: flex;
@@ -266,9 +288,9 @@ export default {
   height: 300px;
   width: 100vw;
 }
-
+*/
 .home-section-link:hover {
-  transform: scale(1.05);
+  background-size: 120%;
 }
 
 #link-particulier {
@@ -276,6 +298,6 @@ export default {
 }
 
 #link-pro {
-  background-image: url('https://secondsouffleebenisterie.fr/fr/wp-content/uploads/2019/01/commerce-bar-sur-mesure.jpg');
+  background-image: url('http://www.redactiv-nord.fr/rno-content/uploads/2021/07/Anabelle-Janssen-Ebeniste-Meuble-bar-1930-cire%CC%81.jpg');
 }
 </style>

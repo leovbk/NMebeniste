@@ -4,15 +4,28 @@
       <h1 id="titre-projet">La torrefactory</h1>
       <div class="all-text-description">
         <h2 id="description">Comptoir et meuble au standard "Damman Frères"</h2>
-        <h3 class="etiquette-titre">lieu</h3>
+        <h3 class="etiquette-titre">Lieu</h3>
         <p>La Torrefactory, à Dunkerque</p>
-        <h3 class="etiquette-titre">phase</h3>
+        <br />
+        <h3 class="etiquette-titre">Phase</h3>
         <p>Livré, Mars 2021</p>
-        <h3 class="etiquette-titre">essence de bois</h3>
+        <br />
+        <h3 class="etiquette-titre">Essence de bois</h3>
         <p>Chêne massif FSC, panneau contreplaqué peuplier, acier brossé</p>
-        <h3 class="etiquette-titre">finition</h3>
+        <br />
+        <h3 class="etiquette-titre">Finition</h3>
         <p>Vernis mat et Peinture gris anthracite</p>
       </div>
+    </section>
+    <section id="gallery-container">
+      <!-- <div class="gallery-wrapper"></div> -->
+      <img src="@/assets/images/contact-bg01.jpg" alt="" />
+      <img src="@/assets/images/contact-bg02.jpg" alt="" />
+      <img src="@/assets/images/contact-bg03.jpg" alt="" />
+      <img src="@/assets/images/contact-bg04.jpg" alt="" />
+      <img src="@/assets/images/img1.jpeg" alt="" />
+      <img src="@/assets/images/img2.jpeg" alt="" />
+      <img src="@/assets/images/img3.jpeg" alt="" />
     </section>
   </div>
 </template>
@@ -27,46 +40,71 @@ export default {}
   font-size: 4em;
   font-weight: 100;
   text-align: center;
-  margin: 30px auto;
+  margin: 20px auto;
+  padding: 40px 25px 25px 25px;
   position: relative;
   color: hsla(137, 8%, 95%, 1);
   background-color: hsla(137, 22%, 25%, 1);
-  padding-top: 15px;
 }
 
 #description {
   font-family: 'Cormorant Garamond', serif;
   font-size: 4em;
   font-weight: 100;
-  line-height: 1.5;
+  margin-bottom: 30px;
 }
 
 .etiquette-titre {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2em;
-  font-weight: 100;
+  font-size: 1.5em;
+  font-weight: 600;
   line-height: 1.5;
+
+  /* text-transform: uppercase; */
+  width: fit-content;
+  margin: 0 0 0.4em 0;
 }
 
 .all-text-description {
-  margin: 60px 200px;
+  margin: 60px 150px;
 }
 
-/* #titre-projet::before {
-  display: block;
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-bottom: solid 1px #413636;
+.all-text-description p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2em;
 }
 
-#titre-projet::after {
-  display: block;
-  content: '';
-  position: absolute;
-  top: -14px;
+#gallery-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 150px 100px;
+  justify-content: space-around;
+}
+
+/* .gallery-wrapper {
   width: 100%;
-  border-bottom: solid 1px #413636;
+  height: 100%;
+  margin: 100px;
+  border: 1px solid green;
+  box-sizing: border-box;
 } */
+
+#gallery-container img {
+  width: 550px;
+  max-width: fit-content;
+  margin: 15px 0;
+}
+
+@media (max-width: 1000px) {
+  #gallery-container {
+    margin: 0 100px 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  #gallery-container {
+    margin: 0 20px 100px;
+  }
+}
 </style>
