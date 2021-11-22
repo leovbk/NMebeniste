@@ -4,21 +4,24 @@
       <PrismicRichText id="titre-projet" :field="titre" />
       <!-- <h1 id="titre-projet">La torrefactory</h1> -->
       <div class="all-text-description">
-        <h2 id="description">Comptoir et meuble au standard "Damman Frères"</h2>
+        <PrismicRichText id="description" :field="description" />
         <h3 class="etiquette-titre">Lieu</h3>
-        <p>La Torrefactory, à Dunkerque</p>
+        <PrismicRichText :field="lieu" />
         <br />
         <h3 class="etiquette-titre">Phase</h3>
-        <p>Livré, Mars 2021</p>
+        <PrismicRichText :field="phase" />
         <br />
         <h3 class="etiquette-titre">Essence de bois</h3>
-        <p>Chêne massif FSC, panneau contreplaqué peuplier, acier brossé</p>
+        <PrismicRichText :field="essence" />
         <br />
         <h3 class="etiquette-titre">Finition</h3>
-        <p>Vernis mat et Peinture gris anthracite</p>
+        <PrismicRichText :field="finition" />
       </div>
     </section>
     <section id="gallery-container">
+      <!-- <div v-for="i in photos" :key="i">
+        <PrismicImage :field="photos[i].photo" />
+      </div> -->
       <!-- <div class="gallery-wrapper"></div> -->
       <img src="@/assets/images/contact-bg01.jpg" alt="" />
       <img src="@/assets/images/contact-bg02.jpg" alt="" />
@@ -40,7 +43,14 @@ export default {
       const projetData = (await $prismic.api.getByUID('particulier', url)).data
       // Returns data to be used in template
       return {
+        projetData,
         titre: projetData.titre,
+        description: projetData.description,
+        lieu: projetData.lieu,
+        phase: projetData.phase,
+        essence: projetData.essence,
+        finition: projetData.finition,
+        photos: projetData.photos,
       }
     } catch (e) {
       // Returns error page
@@ -97,7 +107,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 150px 100px;
+  margin: 0 120px 100px;
   justify-content: space-around;
 }
 
@@ -110,8 +120,11 @@ export default {
 } */
 
 #gallery-container img {
-  width: 500px;
+  max-width: 550px;
+  min-width: 250px;
+  flex-grow: 1;
   margin: 15px 0;
+  padding: 0 10px;
   object-fit: cover;
 }
 
