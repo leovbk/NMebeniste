@@ -27,7 +27,20 @@
         </p>
       </div>
     </section>
-    <SlideShow />
+    <section class="slideShow">
+      <img
+        v-for="(url, i) in slidePictures"
+        :key="i"
+        :src="url"
+        class="slide"
+      />
+      <div
+        v-for="(url, i) in slidePictures"
+        :key="i"
+        class="dot"
+        :class="`dot${i}`"
+      ></div>
+    </section>
 
     <!-- <section class="prismic">
       <RichText :field="content" />
@@ -92,11 +105,6 @@ export default {
   // },
   data() {
     return {
-      // vfImages: [
-      //   '~/assets/images/img1.jpeg',
-      //   '~/assets/images/img2.jpeg',
-      //   '~/assets/images/img3.jpeg',
-      // ],
       activeSlide: 0,
       slideTime: 5000,
     }

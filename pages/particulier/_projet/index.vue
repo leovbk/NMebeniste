@@ -1,7 +1,8 @@
 <template>
   <div class="projet-container">
     <section class="projet-texte">
-      <h1 id="titre-projet">La torrefactory</h1>
+      <PrismicRichText id="titre-projet" :field="titre" />
+      <!-- <h1 id="titre-projet">La torrefactory</h1> -->
       <div class="all-text-description">
         <h2 id="description">Comptoir et meuble au standard "Damman Frères"</h2>
         <h3 class="etiquette-titre">Lieu</h3>
@@ -31,7 +32,25 @@
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $prismic, error, params }) {
+    try {
+      const url = params.projet
+      // Query to get blog home content
+      const projetData = (await $prismic.api.getByUID('particulier', url)).data
+      // Returns data to be used in template
+      return {
+        titre: projetData.titre,
+      }
+    } catch (e) {
+      // Returns error page
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  created() {
+    console.log(this.projetData)
+  },
+}
 </script>
 
 <style>
@@ -91,9 +110,20 @@ export default {}
 } */
 
 #gallery-container img {
-  width: 550px;
-  max-width: fit-content;
+  width: 500px;
   margin: 15px 0;
+  object-fit: cover;
+}
+
+@media (max-width: 1300px) {
+  #gallery-container img {
+    width: 400px;
+    max-width: fit-content;
+    margin: 15px 0;
+  }
+  #gallery-container {
+    margin: 0 120px 100px;
+  }
 }
 
 @media (max-width: 1000px) {
