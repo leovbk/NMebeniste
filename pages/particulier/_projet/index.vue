@@ -18,19 +18,30 @@
         <PrismicRichText :field="finition" />
       </div>
     </section>
+
     <section id="gallery-container">
-      <!-- <div v-for="i in photos" :key="i">
-        <PrismicImage :field="photos[i].photo" />
-      </div> -->
-      <!-- <div class="gallery-wrapper"></div> -->
-      <img src="@/assets/images/contact-bg01.jpg" alt="" />
-      <img src="@/assets/images/contact-bg02.jpg" alt="" />
-      <img src="@/assets/images/contact-bg03.jpg" alt="" />
-      <img src="@/assets/images/contact-bg04.jpg" alt="" />
-      <img src="@/assets/images/img1.jpeg" alt="" />
-      <img src="@/assets/images/img2.jpeg" alt="" />
-      <img src="@/assets/images/img3.jpeg" alt="" />
+      <nuxt-link
+        class="img-projet"
+        v-for="(photop, i) in photos"
+        :key="i"
+        :to="{
+          name: 'particulier-projet-carousel',
+          query: { photo: i },
+        }"
+        :style="{
+          backgroundImage: `url(${photos[i].photo.url})`,
+        }"
+      >
+      </nuxt-link>
     </section>
+    <!-- <div class="gallery-wrapper"></div> -->
+    <!-- <img src="@/assets/images/contact-bg01.jpg" alt="" />
+    <img src="@/assets/images/contact-bg02.jpg" alt="" />
+    <img src="@/assets/images/contact-bg03.jpg" alt="" />
+    <img src="@/assets/images/contact-bg04.jpg" alt="" />
+    <img src="@/assets/images/img1.jpeg" alt="" />
+    <img src="@/assets/images/img2.jpeg" alt="" />
+    <img src="@/assets/images/img3.jpeg" alt="" /> -->
   </div>
 </template>
 
@@ -57,8 +68,9 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+
   created() {
-    console.log(this.projetData)
+    console.log(this.photos)
   },
 }
 </script>
@@ -119,9 +131,10 @@ export default {
   box-sizing: border-box;
 } */
 
-#gallery-container img {
+.img-projet {
   max-width: 550px;
   min-width: 250px;
+  height: 400px;
   flex-grow: 1;
   margin: 15px 0;
   padding: 0 10px;
