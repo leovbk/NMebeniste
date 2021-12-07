@@ -51,20 +51,26 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min'
 export default {
   // layout: 'carousel',
 
-  async asyncData({ $prismic, error, params }) {
-    try {
-      const url = params.projet
-      // Query to get blog home content
-      const projetData = (await $prismic.api.getByUID('particulier', url)).data
-      // Returns data to be used in template
-      return {
-        projetData,
-        photos: projetData.photos,
-      }
-    } catch (e) {
-      // Returns error page
-      error({ statusCode: 404, message: 'Page not found' })
-    }
+  // async asyncData({ $prismic, error, params }) {
+  //   try {
+  //     const url = params.projet
+  //     console.log(url)
+  //     // Query to get blog home content
+  //     const projetData = (await $prismic.api.getByUID('particulier', url)).data
+  //     // Returns data to be used in template
+
+  //     return {
+  //       projetData,
+  //       photos: projetData.photos,
+  //     }
+  //   } catch (e) {
+  //     // Returns error page
+  //     error({ statusCode: 404, message: 'Page not found' })
+  //   }
+  // },
+
+  props: {
+    projetsData: { type: Object, required: true },
   },
 
   data() {

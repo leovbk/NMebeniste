@@ -27,6 +27,7 @@
         :to="{
           name: 'particulier-projet-carousel',
           query: { photo: i },
+          params: { projet: url },
         }"
         :style="{
           backgroundImage: `url(${photos[i].photo.url})`,
