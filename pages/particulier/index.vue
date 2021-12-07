@@ -1,10 +1,5 @@
 <template>
   <div>
-    <button>
-      <nuxt-link :to="{ name: 'particulier-projet' }"
-        >PROJET PARTICULIER</nuxt-link
-      >
-    </button>
     <section class="moisaicContainer">
       <div class="projetMosaic">
         <div v-for="({ couverture, titre, url }, i) in projetsData" :key="i">
@@ -35,7 +30,7 @@
 
 <script>
 export default {
-  async asyncData({ $prismic, error }) {
+  async asyncData({ $prismic, error, store }) {
     const document = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'particulier')
     )
@@ -43,30 +38,34 @@ export default {
     for (let i = 0; i < document.results.length; i++) {
       prismicProject.push(document.results[i])
     }
-    return { prismicProject }
+    store.state.projetsFromStore = prismicProject
+  },
+
+  computed: {
+    allPrismic() {
+      return this.$store.state.projetsFromStore
+    },
   },
 
   data() {
     return { projetsData: [], projectIndex: '', projectName: '' }
   },
+
   created() {
     // map projet data
-    // console.log(this.prismicProject)
 
-    for (const project in this.prismicProject) {
+    for (const project in this.allPrismic) {
       this.projetsData[project] = {
         titre: '',
         id: '',
         couverture: '',
       }
       this.projetsData[project].titre =
-        this.prismicProject[project].data.titre[0].text
-      this.projetsData[project].url = this.prismicProject[project].uid
+        this.allPrismic[project].data.titre[0].text
+      this.projetsData[project].url = this.allPrismic[project].uid
       this.projetsData[project].couverture =
-        this.prismicProject[project].data.couverture.url
+        this.allPrismic[project].data.couverture.url
     }
-
-    console.log(this.projetsData)
   },
 }
 </script>

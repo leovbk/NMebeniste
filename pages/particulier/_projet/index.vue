@@ -20,20 +20,14 @@
     </section>
 
     <section id="gallery-container">
-      <nuxt-link
+      <div
         class="img-projet"
         v-for="(photop, i) in photos"
         :key="i"
-        :to="{
-          name: 'particulier-projet-carousel',
-          query: { photo: i },
-          params: { projet: url },
-        }"
         :style="{
           backgroundImage: `url(${photos[i].photo.url})`,
         }"
-      >
-      </nuxt-link>
+      ></div>
     </section>
     <!-- <div class="gallery-wrapper"></div> -->
     <!-- <img src="@/assets/images/contact-bg01.jpg" alt="" />
