@@ -1,15 +1,29 @@
 // STATE
 
 export const state = () => ({
-  projetsFromStore: [],
+  projectsData: undefined,
 })
 
 // // GETTERS
 
-// export const getters = {}
+export const getters = {
+  projectsData(state) {
+    return state.projectsData
+  },
+}
 
 // ACTIONS
 
+export const actions = {
+  setProjectsData(projectsData) {
+    context.commit('setProjectData', projectsData)
+  },
+}
+
 // // MUTATIONS
 
-// export const mutations = {}
+export const mutations = {
+  setProjectData(state, projectsData) {
+    state.projectsData = projectsData
+  },
+}

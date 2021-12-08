@@ -1,18 +1,10 @@
 <template>
   <div id="carousel_container" class="container">
-    <!-- <nuxt-link
-      id="carousel_escape"
-      :to="{
-        name: 'realisation-project',
-        params: { project: `${project.id}` },
-      }"
-    >
-      <img
+    <!-- <img
         id="img_escape"
         :src="require('@/assets/logo/escape.svg')"
         @click="killScrollAnim"
-      />
-    </nuxt-link> -->
+      /> -->
     <section
       v-for="(photop, i) in photos"
       :key="i"
@@ -44,33 +36,12 @@
 </template>
 
 <script>
-// import projetsData from '@/assets/projets-data'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min'
 
 export default {
-  // layout: 'carousel',
-
-  // async asyncData({ $prismic, error, params }) {
-  //   try {
-  //     const url = params.projet
-  //     console.log(url)
-  //     // Query to get blog home content
-  //     const projetData = (await $prismic.api.getByUID('particulier', url)).data
-  //     // Returns data to be used in template
-
-  //     return {
-  //       projetData,
-  //       photos: projetData.photos,
-  //     }
-  //   } catch (e) {
-  //     // Returns error page
-  //     error({ statusCode: 404, message: 'Page not found' })
-  //   }
-  // },
-
   props: {
-    projetsData: { type: Object, required: true },
+    currentPhoto: { type: Number, required: true },
   },
 
   data() {
@@ -88,9 +59,6 @@ export default {
     },
     projectImages() {
       return this.project.photos
-    },
-    currentPhoto() {
-      return this.$route.query.photo
     },
   },
 

@@ -34,16 +34,16 @@ export default {
     const document = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'particulier')
     )
-    const prismicProject = []
+    const projectsData = []
     for (let i = 0; i < document.results.length; i++) {
-      prismicProject.push(document.results[i])
+      projectsData.push(document.results[i])
     }
-    store.state.projetsFromStore = prismicProject
+    store.dispatch('setProjectsData', projectsData)
   },
 
   computed: {
     allPrismic() {
-      return this.$store.state.projetsFromStore
+      return this.store.getters.projectsData
     },
   },
 
