@@ -15,8 +15,8 @@ export const getters = {
 // ACTIONS
 
 export const actions = {
-  setProjectsData(projectsData) {
-    context.commit('setProjectData', projectsData)
+  setProjectsData(store, projectsData) {
+    store.commit('setProjectData', projectsData)
   },
 }
 
@@ -27,24 +27,3 @@ export const mutations = {
     state.projectsData = projectsData
   },
 }
-
-// const store = new Vuex.Store({
-//   state: {
-//     projectsData: undefined,
-//   },
-//   mutations: {
-//     setProjectData(state, projectsData) {
-//       state.projectsData = projectsData
-//     },
-//   },
-//   actions: {
-//     setProjectsData(projectData) {
-//       context.commit('setProjectData', projectData)
-//     },
-//   },
-//   getters: {
-//     projectsData(state) {
-//       return state.projectsData
-//     },
-//   },
-// })

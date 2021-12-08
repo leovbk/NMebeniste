@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .mosaicContainer {
   position: relative;
   margin-top: 80px;

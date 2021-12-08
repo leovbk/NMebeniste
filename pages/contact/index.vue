@@ -74,7 +74,7 @@
 export default {}
 </script>
 
-<style>
+<style scoped>
 #form_container {
   display: flex;
   justify-content: center;

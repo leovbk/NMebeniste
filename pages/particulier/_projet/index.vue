@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #titre-projet {
   font-family: 'Rotterburg', serif;
   font-size: 4em;
