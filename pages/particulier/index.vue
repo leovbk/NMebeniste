@@ -30,28 +30,29 @@
 
 <script>
 export default {
-  async asyncData({ $prismic, error, store }) {
-    const document = await $prismic.api.query(
-      $prismic.predicates.at('document.type', 'particulier')
-    )
-    const projectsData = []
-    for (let i = 0; i < document.results.length; i++) {
-      projectsData.push(document.results[i])
-    }
-    store.dispatch('setProjectsData', projectsData)
-  },
+  // async asyncData({ $prismic, error, store }) {
+  //   const document = await $prismic.api.query(
+  //     $prismic.predicates.at('document.type', 'particulier')
+  //   )
+  //   const projectsData = []
+  //   for (let i = 0; i < document.results.length; i++) {
+  //     projectsData.push(document.results[i])
+  //   }
+  //   store.dispatch('setProjectsData', projectsData)
+  // },
 
-  computed: {
-    allPrismic() {
-      return this.store.getters.projectsData
-    },
-  },
+  // computed: {
+  //   allPrismic() {
+  //     return this.store.getters.projectsData
+  //   },
+  // },
 
   data() {
     return { projetsData: [], projectIndex: '', projectName: '' }
   },
 
   created() {
+    console.log(this.store)
     // map projet data
 
     for (const project in this.allPrismic) {

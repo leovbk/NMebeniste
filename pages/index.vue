@@ -4,7 +4,6 @@
       <img id="home-bg01" src="~/assets/images/NICOHOME01.jpg" alt="" />
       <div id="text-bg01">
         <div id="title"><h1>nicolas michaud</h1></div>
-        <!-- <RichText id="title" :field="title" /> -->
         <div class="line"></div>
         <p class="subtitle fontAvenir">Ebéniste ~ Créateur</p>
         <p class="subtitle fontAvenir">Responsable</p>
@@ -86,34 +85,19 @@ export default {
     return { slidePictures }
   },
 
-  // async asyncData({ $prismic, error }) {
-  //   try {
-  //     // Query to get blog home content
-  //     const homepageContent = (await $prismic.api.getSingle('home')).data
-  //     // Returns data to be used in template
-  //     return {
-  //       title: homepageContent.title,
-  //       content: homepageContent.content,
-  //       image: homepageContent.image,
-  //       video: homepageContent.video,
-  //       link: homepageContent.link,
-  //     }
-  //   } catch (e) {
-  //     // Returns error page
-  //     error({ statusCode: 404, message: 'Page not found' })
-  //   }
-  // },
   data() {
     return {
       activeSlide: 0,
       slideTime: 5000,
     }
   },
+
   computed: {
     slide() {
       return Array.from(document.querySelectorAll('.slide'))
     },
   },
+
   mounted() {
     this.changeImg()
     console.log(this.slidePictures)

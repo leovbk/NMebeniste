@@ -27,3 +27,24 @@ export const mutations = {
     state.projectsData = projectsData
   },
 }
+
+// const store = new Vuex.Store({
+//   state: {
+//     projectsData: undefined,
+//   },
+//   mutations: {
+//     setProjectData(state, projectsData) {
+//       state.projectsData = projectsData
+//     },
+//   },
+//   actions: {
+//     setProjectsData(projectData) {
+//       context.commit('setProjectData', projectData)
+//     },
+//   },
+//   getters: {
+//     projectsData(state) {
+//       return state.projectsData
+//     },
+//   },
+// })
