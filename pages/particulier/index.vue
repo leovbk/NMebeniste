@@ -2,11 +2,11 @@
   <div>
     <section class="moisaicContainer">
       <div class="projetMosaic">
-        <div v-for="({ couverture, titre, url }, i) in projetsData" :key="i">
+        <div v-for="({ couverture, titre, url }, i) in projetsDataPar" :key="i">
           <nuxt-link
             :to="{
               name: 'particulier-projet',
-              params: { projet: url },
+              params: { projet: url, index: i },
             }"
           >
             <div
@@ -31,40 +31,39 @@
 <script>
 export default {
   async asyncData({ $prismic, error, store }) {
-    const document = await $prismic.api.query(
+    const documentPar = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'particulier')
     )
-    const projectsData = []
-    for (let i = 0; i < document.results.length; i++) {
-      projectsData.push(document.results[i])
+    const projectsDataPar = []
+    for (let i = 0; i < documentPar.results.length; i++) {
+      projectsDataPar.push(documentPar.results[i])
     }
-    store.dispatch('setProjectsData', projectsData)
+    store.dispatch('setProjectsDataPar', projectsDataPar)
+  },
+
+  data() {
+    return { projetsDataPar: [] }
   },
 
   computed: {
     allPrismic() {
-      return this.$store.getters.projectsData
+      return this.$store.getters.projectsDataPar
     },
   },
 
-  data() {
-    return { projetsData: [], projectIndex: '', projectName: '' }
-  },
-
   created() {
-    console.log(this.store)
     // map projet data
 
     for (const project in this.allPrismic) {
-      this.projetsData[project] = {
+      this.projetsDataPar[project] = {
         titre: '',
         id: '',
         couverture: '',
       }
-      this.projetsData[project].titre =
+      this.projetsDataPar[project].titre =
         this.allPrismic[project].data.titre[0].text
-      this.projetsData[project].url = this.allPrismic[project].uid
-      this.projetsData[project].couverture =
+      this.projetsDataPar[project].url = this.allPrismic[project].uid
+      this.projetsDataPar[project].couverture =
         this.allPrismic[project].data.couverture.url
     }
   },

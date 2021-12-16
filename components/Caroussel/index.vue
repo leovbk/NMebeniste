@@ -1,17 +1,20 @@
 <template>
   <div id="carousel_container" class="container">
-    <!-- <img
-        id="img_escape"
-        :src="require('@/assets/logo/escape.svg')"
-        @click="killScrollAnim"
-      /> -->
+    <img
+      id="img_escape"
+      :src="require('@/assets/logo/escape.svg')"
+      @click="
+        killScrollAnim
+        $emit('test-click')
+      "
+    />
     <section
-      v-for="(photop, i) in photos"
+      v-for="(photop, i) in photosCarou"
       :key="i"
       class="panel"
       :class="`photo${i + 1}`"
       :style="{
-        backgroundImage: `url(${photos[i].photos.url})`,
+        backgroundImage: `url(${photosCarou[i].photo.url})`,
       }"
     ></section>
     <div class="flex flex-center">
@@ -40,9 +43,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min'
 
 export default {
-  props: {
-    currentPhoto: { type: Number, required: true },
-  },
+  props: ['photosCarou', 'currentPhoto'],
 
   data() {
     return {
@@ -50,20 +51,9 @@ export default {
     }
   },
 
-  computed: {
-    projectId() {
-      return this.$route.params.project
-    },
-    project() {
-      return this.projetsData.find((project) => project.id === this.projectId)
-    },
-    projectImages() {
-      return this.project.photos
-    },
-  },
-
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
+
     // trigger
 
     function setSection(newSection) {
@@ -78,7 +68,7 @@ export default {
 
     gsap.defaults({ overwrite: 'auto', duration: 0.25 })
     gsap.set('#carousel_container', { height: sections.length * 100 + '%' })
-    sections.forEach((section, i) => {
+    Array.from(sections).forEach((section, i) => {
       ScrollTrigger.create({
         start: () => (i - 0.5) * innerHeight,
         end: () => (i + 0.5) * innerHeight,
@@ -131,8 +121,11 @@ export default {
   justify-content: center;
 }
 
-.container {
+#carousel_container {
+  position: fixed;
   height: 100%;
+  width: 100%;
+  background-color: black;
 }
 
 .panel {
@@ -153,7 +146,7 @@ section:not(.first) {
   transform: scale(0.8);
 }
 
-#carousel_escape {
+#img_escape {
   position: fixed;
   top: 2%;
   right: 2%;
@@ -187,7 +180,8 @@ section:not(.first) {
   transform: scale(0);
   z-index: 998;
 }
-@media (max-width: 1300px) {
+
+/* @media (max-width: 1300px) {
   .panel {
     width: calc(100% - 500px);
     height: calc(100% - 80px);
@@ -229,5 +223,5 @@ section:not(.first) {
     width: 15%;
     height: 25%;
   }
-}
+} */
 </style>

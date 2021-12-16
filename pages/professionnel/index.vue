@@ -1,15 +1,12 @@
 <template>
   <div>
-    <button>
-      <nuxt-link :to="{ name: 'particulier-projet' }">PROJET PRO</nuxt-link>
-    </button>
     <section class="moisaicContainer">
       <div class="projetMosaic">
-        <div v-for="({ couverture, titre, id }, i) in projetsData" :key="i">
+        <div v-for="({ couverture, titre, url }, i) in projetsDataPro" :key="i">
           <nuxt-link
             :to="{
-              name: 'projet',
-              params: { project: id },
+              name: 'professionnel-projet',
+              params: { projet: url, index: i },
             }"
           >
             <div
@@ -33,38 +30,42 @@
 
 <script>
 export default {
-  async asyncData({ $prismic, error }) {
-    const document = await $prismic.api.query(
+  async asyncData({ $prismic, error, store }) {
+    const documentPro = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'professionnel')
     )
-    const prismicProject = []
-    for (let i = 0; i < document.results.length; i++) {
-      prismicProject.push(document.results[i])
+    const projectsDataPro = []
+    for (let i = 0; i < documentPro.results.length; i++) {
+      projectsDataPro.push(documentPro.results[i])
     }
-    return { prismicProject }
+    store.dispatch('setProjectsDataPro', projectsDataPro)
   },
 
   data() {
-    return { projetsData: [], projectIndex: '', projectName: '' }
+    return { projetsDataPro: [] }
   },
+
+  computed: {
+    allPrismic() {
+      return this.$store.getters.projectsDataPro
+    },
+  },
+
   created() {
     // map projet data
-    // console.log(this.prismicProject)
 
-    for (const project in this.prismicProject) {
-      this.projetsData[project] = {
+    for (const project in this.allPrismic) {
+      this.projetsDataPro[project] = {
         titre: '',
         id: '',
         couverture: '',
       }
-      this.projetsData[project].titre =
-        this.prismicProject[project].data.titre[0].text
-      this.projetsData[project].id = this.prismicProject[project].uid
-      this.projetsData[project].couverture =
-        this.prismicProject[project].data.couverture.url
+      this.projetsDataPro[project].titre =
+        this.allPrismic[project].data.titre[0].text
+      this.projetsDataPro[project].url = this.allPrismic[project].uid
+      this.projetsDataPro[project].couverture =
+        this.allPrismic[project].data.couverture.url
     }
-
-    console.log(this.projetsData)
   },
 }
 </script>

@@ -27,32 +27,16 @@
         :style="{
           backgroundImage: `url(${photos[i].photo.url})`,
         }"
-        @click="
-          carousselVisible = true
-          currentPhoto = i
-        "
       ></div>
     </section>
-    <Caroussel
-      @test-click="carousselVisible = false"
-      v-if="carousselVisible"
-      :photosCarou="photos"
-      :currentPhoto="currentPhoto"
-    />
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      carousselVisible: false,
-      currentPhoto: 0,
-    }
-  },
   computed: {
     allPrismic() {
-      return this.$store.getters.projectsDataPar
+      return this.$store.getters.projectsDataPro
     },
 
     currentProjetId() {
