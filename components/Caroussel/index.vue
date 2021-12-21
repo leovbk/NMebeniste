@@ -3,10 +3,7 @@
     <img
       id="img_escape"
       :src="require('@/assets/logo/escape.svg')"
-      @click="
-        killScrollAnim
-        $emit('test-click')
-      "
+      @click="onLeaveCaroussel"
     />
     <section
       v-for="(photop, i) in photosCarou"
@@ -115,6 +112,10 @@ export default {
         Alltrigger[i].kill(true)
       }
       document.removeEventListener('scroll', this.scrollHandler)
+    },
+    onLeaveCaroussel() {
+      this.killScrollAnim()
+      this.$emit('test-click')
     },
   },
 }
