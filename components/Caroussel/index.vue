@@ -43,6 +43,12 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min'
 
 export default {
+  // beforeRouteLeave(to, from, next) {
+  //   document.removeEventListener('scroll', this.scrollHandler)
+  //   this.killScrollAnim()
+  //   next()
+  // },
+
   props: ['photosCarou', 'currentPhoto'],
 
   data() {
@@ -103,10 +109,12 @@ export default {
       }
     },
     killScrollAnim() {
+      console.log('killanim')
       const Alltrigger = ScrollTrigger.getAll()
       for (let i = 0; i < Alltrigger.length; i++) {
         Alltrigger[i].kill(true)
       }
+      document.removeEventListener('scroll', this.scrollHandler)
     },
   },
 }
@@ -123,9 +131,10 @@ export default {
 
 #carousel_container {
   position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: black;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
 }
 
 .panel {
@@ -138,6 +147,7 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: white;
 }
 
 section:not(.first) {
