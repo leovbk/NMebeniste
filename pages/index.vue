@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <section id="bg01">
-      <img id="home-bg01" src="~/assets/images/NICOHOME01.jpg" alt="" />
+      <img id="home-bg01" src="~/assets/images/woodstock.jpg" alt="" />
       <div id="text-bg01">
         <div id="title"><h1>nicolas michaud</h1></div>
         <div class="line"></div>
@@ -280,10 +280,14 @@ export default {
 }
 
 #link-particulier {
-  background-image: url('https://www.boomerang-conseil.fr/wp-content/uploads/3.jpg');
+  background-image: url('~/assets/images/home-par.jpg');
 }
 
+/* #link-particulier {
+  background-image: url('https://www.boomerang-conseil.fr/wp-content/uploads/3.jpg');
+} */
+
 #link-pro {
-  background-image: url('http://www.redactiv-nord.fr/rno-content/uploads/2021/07/Anabelle-Janssen-Ebeniste-Meuble-bar-1930-cire%CC%81.jpg');
+  background-image: url('~/assets/images/home-pro.jpg');
 }
 </style>

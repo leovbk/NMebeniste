@@ -80,7 +80,7 @@ export default {}
   justify-content: center;
   align-items: center;
   height: calc(100% - 120px);
-  background-image: url('@/assets/images/contact-bg01.jpg');
+  background-image: url('@/assets/images/contact-bg2.jpg');
   background-size: cover;
   background-position: center;
 }
