@@ -14,45 +14,45 @@
         <h2>Lorem ipsum dolor sit amet consectetur</h2>
         <br />
         <h1>
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-          vero quisqua"
+          "L'ébénisterie c'est également une manière de faire, de vivre, de
+          concevoir"
         </h1>
         <br />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-          officia explicabo alias numquam quidem libero eos nam animi quas,
-          quibusdam maiores dicta officiis impedit repudiandae at accusamus
-          porro. Esse, mollitia?
+          Cela ce traduit par un choix des produits et des fournisseurs, une
+          gestion responsable de nos déchets à travers le don et le recyclage,
+          une utilisation raisonnée de nos ressources en eau et en énergie, un
+          atelier comme lieu d'échange.
         </p>
       </div>
     </section>
     <section class="slideShow">
       <img
-        v-for="(url, i) in slidePictures"
-        :key="i"
+        v-for="(url, imgIndex) in slidePictures"
+        :key="`slide-${imgIndex}`"
         :src="url"
         class="slide"
+        :class="{ 'active-slide': activeSlide === imgIndex }"
       />
-      <div
-        v-for="(url, i) in slidePictures"
-        :key="i"
-        class="dot"
-        :class="`dot${i}`"
-      ></div>
+      <div id="dot-container">
+        <button
+          v-for="(url, btnIndex) in slidePictures"
+          :key="`btn-${btnIndex}`"
+          class="dot"
+          :class="{ 'active-dot': activeSlide === btnIndex }"
+          @click="setActiveSlide(btnIndex)"
+        ></button>
+      </div>
     </section>
 
-    <!-- <section class="prismic">
-      <RichText :field="content" />
-      <PrismicImage :field="image" />
-      <PrismicEmbed :field="video" />
-    </section> -->
-
-    <!-- <PrismicLink :field="link"> {{ link.uid }} </PrismicLink> -->
     <section>
       <div id="link-container">
-        <a id="link-particulier" class="home-section-link" href="">
-          PARTICULIER
-        </a>
+        <nuxt-link
+          id="link-particulier"
+          class="home-section-link"
+          :to="{ name: 'particulier' }"
+          >PARTICULIER</nuxt-link
+        >
         <p class="grid-link-text">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quam
           tenetur beatae doloribus cupiditate perferendis odit quisquam hic
@@ -63,7 +63,12 @@
           tenetur beatae doloribus cupiditate perferendis odit quisquam hic
           delectus eos!
         </p>
-        <a id="link-pro" class="home-section-link" href="">PROFESSIONNEL</a>
+        <nuxt-link
+          id="link-pro"
+          class="home-section-link"
+          :to="{ name: 'professionnel' }"
+          >PROFESSIONNEL</nuxt-link
+        >
       </div>
     </section>
   </div>
@@ -89,36 +94,32 @@ export default {
     return {
       activeSlide: 0,
       slideTime: 5000,
+      slideInterval: undefined,
     }
   },
 
-  computed: {
-    slide() {
-      return Array.from(document.querySelectorAll('.slide'))
-    },
-  },
-
   mounted() {
-    this.changeImg()
+    this.launchInterval()
     console.log(this.slidePictures)
   },
 
   methods: {
-    changeImg() {
-      this.slide.forEach((item, index) => {
-        if (index === this.activeSlide) {
-          this.slide[this.activeSlide].style.opacity = '1'
-        } else {
-          this.slide[index].style.opacity = '0'
-        }
-      })
+    launchInterval() {
+      this.slideInterval = setInterval(this.changeSlide, this.slideTime)
+    },
 
-      if (this.activeSlide < this.slide.length - 1) {
+    changeSlide() {
+      if (this.activeSlide < this.slidePictures.length - 1) {
         this.activeSlide++
       } else {
         this.activeSlide = 0
       }
-      setTimeout(this.changeImg, this.slideTime)
+    },
+
+    setActiveSlide(index) {
+      clearInterval(this.slideInterval)
+      this.activeSlide = index
+      this.launchInterval()
     },
   },
 }
@@ -221,12 +222,36 @@ export default {
   overflow: hidden;
 }
 
-.slide {
+.slideShow .slide {
   position: absolute;
   object-fit: cover;
   width: 100%;
   height: 100%;
   transition: all 0.7s ease-in-out;
+  opacity: 0;
+}
+
+.slideShow .slide.active-slide {
+  opacity: 1;
+}
+
+#dot-container {
+  position: absolute;
+  bottom: 10px;
+}
+
+.slideShow .dot {
+  height: 15px;
+  width: 15px;
+  background-color: #413636;
+  border-radius: 50%;
+  z-index: 2000;
+  cursor: pointer;
+  margin: 3px;
+}
+.slideShow .dot.active-dot {
+  background-color: hsla(137, 8%, 95%, 1);
+  transform: scale(1.2);
 }
 
 #link-container {
@@ -261,33 +286,18 @@ export default {
   text-align: center;
 }
 
-/* 
-
-.prismic {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.prismic iframe {
-  height: 300px;
-  width: 100vw;
-}
-*/
-.home-section-link:hover {
-  background-size: 120%;
-}
-
 #link-particulier {
-  background-image: url('~/assets/images/home-par.jpg');
+  background-image: url('~/assets/images/pegboard-bois.jpeg');
+  background-size: cover;
 }
-
-/* #link-particulier {
-  background-image: url('https://www.boomerang-conseil.fr/wp-content/uploads/3.jpg');
-} */
 
 #link-pro {
   background-image: url('~/assets/images/home-pro.jpg');
+  background-size: cover;
+}
+
+.home-section-link:hover {
+  color: #413636;
+  font-size: 320%;
 }
 </style>
