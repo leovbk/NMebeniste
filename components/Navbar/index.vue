@@ -1,7 +1,10 @@
 <template>
   <nav class="barMenu">
     <div id="nav_container">
-      <img id="nav-logo" src="~/assets/images/logo.png" alt="" />
+      <nuxt-link id="nav-logo" :to="{ name: 'index' }"
+        ><img src="~/assets/images/logo.png" alt=""
+      /></nuxt-link>
+
       <div id="btn-container">
         <button class="btn-nav">
           <nuxt-link :to="{ name: 'index' }">ACCEUIL</nuxt-link>
@@ -28,9 +31,9 @@ export default {
 
 <style>
 #nav-logo {
+  display: flex;
   margin-left: 5%;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   transform: scale(1.5);
 }
 #nav_container {
