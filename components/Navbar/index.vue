@@ -7,7 +7,7 @@
 
       <div id="btn-container">
         <button class="btn-nav">
-          <nuxt-link :to="{ name: 'index' }">ACCEUIL</nuxt-link>
+          <nuxt-link :to="{ name: 'index' }">ACCUEIL</nuxt-link>
         </button>
         <button class="btn-nav">
           <nuxt-link :to="{ name: 'professionnel' }">PROFESSIONNEL</nuxt-link>

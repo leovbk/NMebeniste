@@ -1,9 +1,22 @@
+// à ajouter pour le deploiement !!!!!!!!
+
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/NMebeniste/' : '/'
+
+// !!!!!!!!!!!!!!
+
 export default {
+  // à ajouter pour le deploiement !!!!!!!!
+  router: {
+    base: routerBase,
+  },
+
+  // !!!!!!!!!!!!!!
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nicolasmichaudebeniste',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'fr',
     },
     meta: [
       { charset: 'utf-8' },
