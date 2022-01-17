@@ -5,6 +5,12 @@
 }
 
 @font-face {
+  font-family: 'Northern';
+  src: local('Northern '),
+    url(@/assets/fonts/Northern.ttf) format('truetype');
+}
+
+@font-face {
   font-family: 'Newyork';
   src: local('Newyork'),
     url(@/assets/fonts/Newyork/Newyork.otf) format('opentype');

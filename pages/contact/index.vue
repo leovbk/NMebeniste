@@ -80,7 +80,7 @@ export default {}
   justify-content: center;
   align-items: center;
   height: calc(100% - 120px);
-  background-image: url('@/assets/images/contact-bg2.jpg');
+  background-image: url('@/assets/images/BG-CONTACT.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -123,7 +123,7 @@ label {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: large;
-  color: #413636;
+  color: hsla(137, 8%, 95%, 1);
 
   /* font-weight: bold; */
 }

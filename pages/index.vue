@@ -45,7 +45,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="link-section">
       <div id="link-container">
         <nuxt-link
           id="link-particulier"
@@ -159,7 +159,7 @@ export default {
 }
 
 #title h1 {
-  font-family: 'Rotterburg', serif;
+  font-family: 'Northern', serif;
   font-size: 4em;
   font-weight: 100;
   margin-bottom: 0;
@@ -181,7 +181,8 @@ export default {
   align-items: center;
   justify-content: center;
   margin: 30px 15% 30px 15%;
-  height: 300px;
+  height: auto;
+  min-height: 200px;
   text-align: center;
   font-family: Sabon Regular, serif;
   font-size: medium;
@@ -213,21 +214,33 @@ export default {
 
 .slideShow {
   position: relative;
-  height: 500px;
-
-  /* margin: 5vw; */
+  height: 600px;
+  margin: 40px 120px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+
+  /* overflow: hidden; */
+
+  /* border: 20px solid #413636; */
 }
+
+/* #BG {
+  z-index: -20000;
+  position: relative;
+  height: calc(100% + 240px);
+  width: calc(100% + 240px);
+  background-size: cover;
+  background-image: url('https://i.pinimg.com/originals/b5/f9/48/b5f94896c81084fdb30944612c8d3948.jpg');
+  margin: -120px;
+} */
 
 .slideShow .slide {
   position: absolute;
   object-fit: cover;
   width: 100%;
   height: 100%;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.5s ease;
   opacity: 0;
 }
 
@@ -237,21 +250,23 @@ export default {
 
 #dot-container {
   position: absolute;
-  bottom: 10px;
+  bottom: -40px;
 }
 
 .slideShow .dot {
   height: 15px;
   width: 15px;
   background-color: #413636;
-  border-radius: 50%;
+
+  /* border-radius: 50%; */
   z-index: 2000;
   cursor: pointer;
-  margin: 3px;
+  margin: 5px;
+  transition: all 0.7s ease-in-out;
 }
 .slideShow .dot.active-dot {
-  background-color: hsla(137, 8%, 95%, 1);
-  transform: scale(1.2);
+  background-color: hsl(147, 4%, 59%);
+  transform: rotate(45deg);
 }
 
 #link-container {

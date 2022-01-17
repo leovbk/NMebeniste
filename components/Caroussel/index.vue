@@ -164,6 +164,7 @@ section:not(.first) {
   width: 6%;
   height: 10%;
   z-index: 300;
+  cursor: pointer;
 }
 
 #scrollDown {

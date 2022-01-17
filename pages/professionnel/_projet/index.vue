@@ -8,10 +8,10 @@
         <h3 class="etiquette-titre">Lieu</h3>
         <PrismicRichText :field="lieu" />
         <br />
-        <h3 class="etiquette-titre">Phase</h3>
+        <h3 class="etiquette-titre">Calendrier</h3>
         <PrismicRichText :field="phase" />
         <br />
-        <h3 class="etiquette-titre">Essence de bois</h3>
+        <h3 class="etiquette-titre">Matériaux utilisés</h3>
         <PrismicRichText :field="essence" />
         <br />
         <h3 class="etiquette-titre">Finition</h3>
@@ -100,7 +100,7 @@ export default {
 
 <style scoped>
 #titre-projet {
-  font-family: 'Rotterburg', serif;
+  font-family: 'Northern', serif;
   font-size: 4em;
   font-weight: 100;
   text-align: center;
@@ -113,7 +113,7 @@ export default {
 
 #description {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 4em;
+  font-size: 2em;
   font-weight: 100;
   margin-bottom: 30px;
 }
@@ -151,10 +151,11 @@ export default {
   max-width: 550px;
   min-width: 500px;
   height: 400px;
-  margin: 15px 0;
+  margin: 15px 15px;
   background-size: cover;
   background-position: center;
   flex-grow: 1;
+  cursor: pointer;
 }
 
 /* @media (max-width: 1300px) {

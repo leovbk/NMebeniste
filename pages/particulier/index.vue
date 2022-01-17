@@ -83,7 +83,6 @@ export default {
   margin-right: 120px;
   margin-top: 140px;
   margin-bottom: 140px;
-  line-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,6 +120,7 @@ export default {
   width: 100%;
   height: 100%;
   transition-duration: 0.4s;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,6 +135,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
   color: white;
   width: 100%;
   height: 100%;

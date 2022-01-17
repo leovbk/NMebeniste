@@ -1,10 +1,14 @@
 <template>
   <div id="footer">
     <p>
-      Nicolas MICHAUD - 29 rue Machin 59000 ROUBAIX - 0672628909 -
-      contact@michaud.fr
+      Nicolas MICHAUD - HAUT DE FRANCE - 0608955503 - nicolas.michaud@lilo.org
     </p>
-    <p>© 2021 - <a href="">Facebook</a></p>
+    <p>
+      © 2022 -
+      <a href="https://www.facebook.com/NicolasMichaudEbeniste" target="_blank"
+        >Facebook</a
+      >
+    </p>
   </div>
 </template>
 
