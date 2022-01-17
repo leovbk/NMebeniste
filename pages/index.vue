@@ -215,25 +215,11 @@ export default {
 .slideShow {
   position: relative;
   height: 600px;
-  margin: 40px 120px 80px;
+  margin: 40px 160px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* overflow: hidden; */
-
-  /* border: 20px solid #413636; */
 }
-
-/* #BG {
-  z-index: -20000;
-  position: relative;
-  height: calc(100% + 240px);
-  width: calc(100% + 240px);
-  background-size: cover;
-  background-image: url('https://i.pinimg.com/originals/b5/f9/48/b5f94896c81084fdb30944612c8d3948.jpg');
-  margin: -120px;
-} */
 
 .slideShow .slide {
   position: absolute;

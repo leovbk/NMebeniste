@@ -2,8 +2,9 @@
   <nav class="barMenu">
     <div id="nav_container">
       <nuxt-link id="nav-logo" :to="{ name: 'index' }"
-        ><img src="~/assets/images/logo.png" alt=""
-      /></nuxt-link>
+        ><div id="logo-1" class="logo">Nicolas Michaud</div>
+        <div id="logo-2" class="logo">Ebéniste</div></nuxt-link
+      >
 
       <div id="btn-container">
         <button class="btn-nav">
@@ -32,10 +33,25 @@ export default {
 <style>
 #nav-logo {
   display: flex;
-  margin-left: 5%;
-  margin-top: 20px;
-  transform: scale(1.5);
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+  font-family: GoldenHopes, sans-serif;
+  color: #413636;
+  margin: 40px 50px 0;
+
+  /* line-height: 80%; */
 }
+
+#logo-1 {
+  font-size: xx-large;
+}
+
+#logo-2 {
+  font-size: xxx-large;
+  letter-spacing: 2px;
+}
+
 #nav_container {
   height: 120px;
   margin: 0 auto;

@@ -6,8 +6,14 @@
 
 @font-face {
   font-family: 'Northern';
-  src: local('Northern '),
+  src: local('Northern'),
     url(@/assets/fonts/Northern.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'GoldenHopes';
+  src: local('GoldenHopes'),
+    url(@/assets/fonts/GoldenHopes.otf) format('opentype');
 }
 
 @font-face {
