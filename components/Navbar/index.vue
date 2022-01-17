@@ -39,8 +39,7 @@ export default {
   font-family: GoldenHopes, sans-serif;
   color: #413636;
   margin: 40px 50px 0;
-
-  /* line-height: 80%; */
+  line-height: 40px;
 }
 
 #logo-1 {
@@ -48,7 +47,7 @@ export default {
 }
 
 #logo-2 {
-  font-size: xxx-large;
+  font-size: 58px;
   letter-spacing: 2px;
 }
 
