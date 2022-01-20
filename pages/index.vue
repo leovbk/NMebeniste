@@ -5,8 +5,8 @@
       <div id="text-bg01">
         <div id="title"><h1>nicolas michaud</h1></div>
         <div class="line"></div>
-        <p class="subtitle fontAvenir">Ebéniste ~ Créateur</p>
-        <p class="subtitle fontAvenir">Responsable</p>
+        <p class="subtitle fontAvenir">Artisan Eco-responsable</p>
+        <!-- <p class="subtitle fontAvenir">Responsable</p> -->
       </div>
     </section>
     <section id="home-text">
@@ -45,6 +45,14 @@
       </div>
     </section>
 
+    <section id="pratique">
+      <p class="text-pratique">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque ad
+        numquam quidem odit! Culpa aut possimus incidunt maxime. Cum mollitia
+        laboriosam aliquid commodi quis hic dolorem et soluta amet magni!
+      </p>
+    </section>
+
     <section id="link-section">
       <div id="link-container">
         <nuxt-link
@@ -53,16 +61,6 @@
           :to="{ name: 'particulier' }"
           >PARTICULIER</nuxt-link
         >
-        <p class="grid-link-text">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quam
-          tenetur beatae doloribus cupiditate perferendis odit quisquam hic
-          delectus eos!
-        </p>
-        <p class="grid-link-text">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat quam
-          tenetur beatae doloribus cupiditate perferendis odit quisquam hic
-          delectus eos!
-        </p>
         <nuxt-link
           id="link-pro"
           class="home-section-link"
@@ -100,7 +98,12 @@ export default {
 
   mounted() {
     this.launchInterval()
-    console.log(this.slidePictures)
+
+    const parallax = document.querySelector('#pratique')
+
+    window.addEventListener('scroll', () => {
+      parallax.style.backgroundPositionY = -(window.scrollY - 700) / 4 + 'px'
+    })
   },
 
   methods: {
@@ -255,11 +258,30 @@ export default {
   transform: rotate(45deg);
 }
 
+#pratique {
+  height: 400px;
+  background-image: url('~/assets/images/BG-pratique.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: grayscale(100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsla(137, 8%, 95%, 1);
+}
+
+.text-pratique {
+  width: 600px;
+  text-align: center;
+  font-family: Sabon Regular, serif;
+  font-size: x-large;
+}
+
 #link-container {
   display: grid;
   width: 100vw;
-  height: 800px;
-  grid-template-rows: repeat(2, 1fr);
+  height: 400px;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -278,6 +300,7 @@ export default {
   text-decoration: none;
 }
 
+/* 
 .grid-link-text {
   color: #413636;
   display: flex;
@@ -285,20 +308,25 @@ export default {
   align-items: center;
   margin: 100px;
   text-align: center;
-}
+} */
 
 #link-particulier {
-  background-image: url('~/assets/images/pegboard-bois.jpeg');
+  background-image: url('~/assets/images/Particulier.jpg');
   background-size: cover;
+
+  /* margin: 20px 10px 20px 20px; */
 }
 
 #link-pro {
-  background-image: url('~/assets/images/home-pro.jpg');
+  background-image: url('~/assets/images/Professionnel.jpg');
   background-size: cover;
+
+  /* margin: 20px 20px 20px 10px; */
 }
 
 .home-section-link:hover {
   color: #413636;
   font-size: 320%;
+  margin: 0;
 }
 </style>
