@@ -1,9 +1,10 @@
 <template>
   <nav class="barMenu">
     <div id="nav_container">
-      <nuxt-link id="nav-logo" :to="{ name: 'index' }"
-        ><div id="logo-1" class="logo">Nicolas Michaud</div>
-        <div id="logo-2" class="logo">Ebéniste</div>
+      <nuxt-link id="nav-logo" :to="{ name: 'index' }">
+        <img id="logo" src="~/assets/images/LOGO-NICO.jpg" alt="Logo" />
+        <!-- <div id="logo-1" class="logo">Nicolas Michaud</div>
+        <div id="logo-2" class="logo">Ebéniste</div> -->
       </nuxt-link>
 
       <div id="btn-container">
@@ -38,8 +39,11 @@ export default {
   align-items: center;
   font-family: GoldenHopes, sans-serif;
   color: #413636;
-  margin: 40px 50px 0;
   line-height: 40px;
+}
+
+#logo {
+  height: 170px;
 }
 
 #logo-1 {
