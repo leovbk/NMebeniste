@@ -1,11 +1,17 @@
 <template>
-  <nav class="barMenu">
+  <nav id="barMenu">
     <div id="nav_container">
       <nuxt-link id="nav-logo" :to="{ name: 'index' }">
         <img id="logo" src="~/assets/images/LOGO-NICO.jpg" alt="Logo" />
-        <!-- <div id="logo-1" class="logo">Nicolas Michaud</div>
-        <div id="logo-2" class="logo">Ebéniste</div> -->
       </nuxt-link>
+
+      <button @click="toggleNav" id="menu-burger">
+        <div id="line-container">
+          <div class="line-burger"></div>
+          <div class="line-burger"></div>
+          <div class="line-burger"></div>
+        </div>
+      </button>
 
       <div id="btn-container">
         <button class="btn-nav">
@@ -22,12 +28,40 @@
         </button>
       </div>
     </div>
+    <div id="btn-container-burger">
+      <button @click="toggleNav" class="btn-nav-burger">
+        <nuxt-link :to="{ name: 'index' }">ACCUEIL</nuxt-link>
+      </button>
+      <button @click="toggleNav" class="btn-nav-burger">
+        <nuxt-link :to="{ name: 'professionnel' }">PROFESSIONNEL</nuxt-link>
+      </button>
+      <button @click="toggleNav" class="btn-nav-burger">
+        <nuxt-link :to="{ name: 'particulier' }">PARTICULIER</nuxt-link>
+      </button>
+      <button @click="toggleNav" class="btn-nav-burger">
+        <nuxt-link :to="{ name: 'contact' }">CONTACT</nuxt-link>
+      </button>
+    </div>
+    <div id="nav-spacer"></div>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
+
+  data() {
+    return { navOpen: false }
+  },
+
+  methods: {
+    toggleNav() {
+      this.navOpen = !this.navOpen
+      console.log('openNav')
+      const navBurger = document.getElementById('btn-container-burger')
+      navBurger.classList.toggle('open')
+    },
+  },
 }
 </script>
 
@@ -35,28 +69,16 @@ export default {
 #nav-logo {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
   align-items: center;
-  font-family: GoldenHopes, sans-serif;
-  color: #413636;
-  line-height: 40px;
 }
 
 #logo {
-  height: 170px;
-}
-
-#logo-1 {
-  font-size: xx-large;
-}
-
-#logo-2 {
-  font-size: 58px;
-  letter-spacing: 2px;
+  height: 110px;
+  margin: 12px;
 }
 
 #nav_container {
-  height: 120px;
+  min-height: 120px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -67,7 +89,6 @@ export default {
 #btn-container {
   margin-right: 80px;
   width: 650px;
-  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -104,6 +125,100 @@ export default {
 .btn-nav a:hover::after,
 .btn-nav a:focus::after {
   transform: scaleX(1);
+}
+
+#nav-spacer {
+  width: 100%;
+  height: 20px;
+  background-color: hsla(137, 8%, 95%, 1);
+}
+
+#menu-burger {
+  margin: 27px 10px 0;
+  width: 120px;
+  height: 120px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+#btn-container-burger {
+  /* position: fixed; */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  transition: max-height 1s cubic-bezier(0.97, 0.01, 0, 1);
+  max-height: 0;
+  overflow: hidden;
+}
+
+.open {
+  transition: max-height 1s cubic-bezier(0.97, 0.01, 0, 1);
+  max-height: 1000px !important;
+}
+
+.btn-nav-burger {
+  padding: 20px;
+  text-decoration: none;
+  background-color: hsla(137, 22%, 20%, 1);
+}
+
+.btn-nav-burger a {
+  text-decoration: none;
+  color: hsla(137, 8%, 95%, 1);
+  font-family: Avenir-Next-LT, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: x-large;
+}
+
+#line-container {
+  width: 70px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.line-burger {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #413636;
+}
+
+#menu-burger .line-burger:nth-child(1) {
+  top: 0;
+}
+
+#menu-burger .line-burger:nth-child(2) {
+  top: 25px;
+}
+
+#menu-burger .line-burger:nth-child(3) {
+  top: 50px;
+}
+
+@media (max-width: 850px) {
+  #btn-container {
+    display: none;
+  }
+
+  #nav-spacer {
+    display: none;
+  }
+}
+
+@media (min-width: 850px) {
+  #menu-burger {
+    display: none;
+  }
+
+  #btn-container-burger {
+    display: none;
+  }
 }
 
 /* .btn-nav a:hover,

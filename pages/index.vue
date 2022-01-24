@@ -140,7 +140,6 @@ export default {
   height: 600px;
   width: 100%;
   object-fit: cover;
-  padding-top: 20px;
 }
 
 #text-bg01 {
@@ -149,7 +148,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 400px;
+  height: 350px;
   width: 700px;
   display: flex;
   flex-direction: column;

@@ -1,7 +1,5 @@
 <template>
   <div id="form_container">
-    <!-- <div class="spacer-form"></div> -->
-
     <form
       id="contact-form"
       target="_blank"
@@ -79,7 +77,6 @@ export default {}
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 120px);
   background-image: url('@/assets/images/BG-CONTACT.jpg');
   background-size: cover;
   background-position: center;
@@ -96,12 +93,6 @@ export default {}
 }
 
 .grid-wrapper {
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
-  row-gap: 10px;
-  grid-auto-rows: auto; */
-
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;

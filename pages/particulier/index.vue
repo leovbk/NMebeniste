@@ -81,7 +81,7 @@ export default {
 .projetMosaic {
   margin-left: 120px;
   margin-right: 120px;
-  margin-top: 140px;
+  margin-top: 40px;
   margin-bottom: 140px;
   display: flex;
   align-items: center;
