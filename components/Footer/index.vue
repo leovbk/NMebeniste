@@ -31,6 +31,7 @@ export default {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: large;
+  text-align: center;
 }
 
 #footer p {

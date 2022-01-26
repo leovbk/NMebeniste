@@ -328,4 +328,44 @@ export default {
   font-size: 320%;
   margin: 0;
 }
+
+@media (max-width: 1200px) {
+  .slideShow {
+    margin: 40px 60px 80px;
+  }
+}
+
+@media (max-width: 900px) {
+  .slideShow {
+    height: 450px;
+  }
+}
+
+@media (max-width: 750px) {
+  .slideShow {
+    margin: 40px 0 80px;
+  }
+  #title h1 {
+    font-size: 3.5em;
+  }
+
+  .subtitle {
+    font-size: x-large;
+  }
+
+  .line {
+    width: 160px;
+  }
+
+  #text-bg01 {
+    height: 300px;
+    width: 100%;
+  }
+
+  #link-container {
+    width: 100vw;
+    height: 600px;
+    grid-template-columns: none;
+  }
+}
 </style>
