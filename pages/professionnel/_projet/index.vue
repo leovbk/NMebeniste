@@ -158,17 +158,27 @@ export default {
   cursor: pointer;
 }
 
-/* @media (max-width: 1300px) {
-  #gallery-container img {
-    width: 400px;
-    max-width: fit-content;
-    margin: 15px 0;
+@media (max-width: 850px) {
+  .all-text-description {
+    margin: 40px 60px;
   }
-  #gallery-container {
-    margin: 0 120px 100px;
+  #titre-projet {
+    font-size: 2.5em;
+  }
+
+  #description {
+    font-size: 1.5em;
   }
 }
 
+@media (max-width: 500px) {
+  .img-projet {
+    width: 100vw;
+    height: 300px;
+  }
+}
+
+/* 
 @media (max-width: 1000px) {
   #gallery-container {
     margin: 0 100px 100px;
