@@ -77,6 +77,11 @@
     url(@/assets/fonts/Sabon/SabonBoldItalic.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'Cormorant Garamond', serif;
+  src: url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+}
+
 *,
 *::after,
 *::before {

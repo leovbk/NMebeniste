@@ -11,7 +11,7 @@
     </section>
     <section id="home-text">
       <div id="home-text-container">
-        <h2>Lorem ipsum dolor sit amet consectetur</h2>
+        <h2>Une ébénisterie responsable, durable, qui crée du lien</h2>
         <br />
         <h1>
           "L'ébénisterie c'est également une manière de faire, de vivre, de
@@ -47,9 +47,12 @@
 
     <section id="pratique">
       <p class="text-pratique">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque ad
-        numquam quidem odit! Culpa aut possimus incidunt maxime. Cum mollitia
-        laboriosam aliquid commodi quis hic dolorem et soluta amet magni!
+        Je suis ingénieur généraliste de formation, diplômé de l’école des
+        Mines, et j’ai débuté ma carrière dans l’industrie, sur des postes
+        supports dans l’automobile et l’aéronautique. Rapidement, j’ai souhaité
+        une voie différente. Plus éloignée du cloisonnement systémique et rigide
+        qu’impose actuellement l’industrie en France. Plus proche de mes
+        aspirations personnelles, de mes valeurs, de mes racines.
       </p>
     </section>
 
@@ -102,7 +105,7 @@ export default {
     const parallax = document.querySelector('#pratique')
 
     window.addEventListener('scroll', () => {
-      parallax.style.backgroundPositionY = -(window.scrollY - 700) / 4 + 'px'
+      parallax.style.backgroundPositionY = -(window.scrollY - 1400) / 2 + 'px'
     })
   },
 
@@ -129,10 +132,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300&display=swap');
-
 #bg01 {
   position: relative;
 }
@@ -186,13 +185,13 @@ export default {
   height: auto;
   min-height: 200px;
   text-align: center;
-  font-family: Sabon Regular, serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: medium;
   overflow: hidden;
 }
 
 #home-text-container h2 {
-  font-family: Sabon Regular, serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: x-large;
   margin: 0;
   color: #413636;
@@ -271,10 +270,13 @@ export default {
 }
 
 .text-pratique {
-  width: 600px;
   text-align: center;
-  font-family: Sabon Regular, serif;
-  font-size: x-large;
+  font-family: 'Cormorant Garamond', serif;
+  width: 70vw;
+  font-size: 20px;
+  background-color: rgba(65, 54, 54, 0.2);
+  backdrop-filter: blur(2px);
+  padding: 15px;
 }
 
 #link-container {
@@ -366,6 +368,12 @@ export default {
     width: 100vw;
     height: 600px;
     grid-template-columns: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .slideShow {
+    height: 300px;
   }
 }
 </style>

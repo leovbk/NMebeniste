@@ -34,10 +34,10 @@
       ></div>
     </section>
     <Caroussel
-      @test-click="carousselVisible = false"
       v-if="carousselVisible"
-      :photosCarou="photos"
+      @test-click="carousselVisible = false"
       :currentPhoto="currentPhoto"
+      :photosCarou="photos"
     />
   </div>
 </template>
@@ -171,10 +171,22 @@ export default {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .img-projet {
     width: 100vw;
     height: 300px;
+  }
+
+  #titre-projet {
+    font-size: 1.8em;
+  }
+
+  #description {
+    font-size: 1em;
+  }
+
+  .all-text-description p {
+    font-size: 1em !important;
   }
 }
 
