@@ -137,6 +137,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+  font-family: 'Cormorant Garamond', serif;
   color: white;
   width: 100%;
   height: 100%;

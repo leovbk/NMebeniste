@@ -62,13 +62,13 @@
           id="link-particulier"
           class="home-section-link"
           :to="{ name: 'particulier' }"
-          >PARTICULIER</nuxt-link
+          ><p>PARTICULIER</p></nuxt-link
         >
         <nuxt-link
           id="link-pro"
           class="home-section-link"
           :to="{ name: 'professionnel' }"
-          >PROFESSIONNEL</nuxt-link
+          ><p>PROFESSIONNEL</p></nuxt-link
         >
       </div>
     </section>
@@ -103,9 +103,11 @@ export default {
     this.launchInterval()
 
     const parallax = document.querySelector('#pratique')
+    const rectPratique = parallax.getBoundingClientRect()
 
     window.addEventListener('scroll', () => {
-      parallax.style.backgroundPositionY = -(window.scrollY - 1400) / 2 + 'px'
+      parallax.style.backgroundPositionY =
+        -(window.scrollY - rectPratique.top + 200) / 2 + 'px'
     })
   },
 
@@ -143,7 +145,7 @@ export default {
 
 #text-bg01 {
   position: absolute;
-  background-color: hsla(137, 22%, 20%, 0.6);
+  background-color: hsla(137, 22%, 20%, 0.8);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -154,7 +156,8 @@ export default {
   align-items: center;
   justify-content: center;
   color: hsla(137, 8%, 95%, 1);
-  backdrop-filter: blur(3px);
+
+  /* backdrop-filter: blur(3px); */
 
   /* box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6); */
 }
@@ -262,6 +265,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
   filter: grayscale(100%);
   display: flex;
   justify-content: center;
@@ -273,10 +277,11 @@ export default {
   text-align: center;
   font-family: 'Cormorant Garamond', serif;
   width: 70vw;
-  font-size: 20px;
-  background-color: rgba(65, 54, 54, 0.2);
-  backdrop-filter: blur(2px);
-  padding: 15px;
+  font-size: 22px;
+  background-color: rgba(65, 54, 54, 0.6);
+
+  /* backdrop-filter: blur(2px); */
+  padding: 60px;
 }
 
 #link-container {
@@ -301,6 +306,11 @@ export default {
   text-decoration: none;
 }
 
+.home-section-link.p {
+  z-index: 2;
+  pointer-events: none;
+}
+
 /* 
 .grid-link-text {
   color: #413636;
@@ -314,19 +324,48 @@ export default {
 #link-particulier {
   background-image: url('~/assets/images/Particulier.jpg');
   background-size: cover;
+  position: relative;
 
   /* margin: 20px 10px 20px 20px; */
 }
 
+#link-particulier::before {
+  background-color: rgb(65, 54, 54);
+  opacity: 0;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transition: all 0.7s;
+}
+
+#link-particulier:hover::before {
+  opacity: 0.4;
+}
+
 #link-pro {
+  position: relative;
   background-image: url('~/assets/images/Professionnel.jpg');
   background-size: cover;
+}
 
-  /* margin: 20px 20px 20px 10px; */
+#link-pro::before {
+  background-color: rgb(65, 54, 54);
+  opacity: 0;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transition: all 0.7s;
+}
+
+#link-pro:hover::before {
+  opacity: 0.4;
 }
 
 .home-section-link:hover {
-  color: #413636;
   font-size: 320%;
   margin: 0;
 }
@@ -369,11 +408,22 @@ export default {
     height: 600px;
     grid-template-columns: none;
   }
+
+  .text-pratique {
+    font-size: 20px;
+    padding: 40px;
+  }
 }
 
 @media (max-width: 550px) {
   .slideShow {
     height: 300px;
+  }
+
+  .text-pratique {
+    font-size: 18px;
+    padding: 20px;
+    width: 100vw;
   }
 }
 </style>

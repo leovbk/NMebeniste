@@ -44,6 +44,16 @@
 
 <script>
 export default {
+  async asyncData({ $prismic, error, store }) {
+    const documentPro = await $prismic.api.query(
+      $prismic.predicates.at('document.type', 'professionnel')
+    )
+    const projectsDataPro = []
+    for (let i = 0; i < documentPro.results.length; i++) {
+      projectsDataPro.push(documentPro.results[i])
+    }
+    store.dispatch('setProjectsDataPro', projectsDataPro)
+  },
   data() {
     return {
       carousselVisible: false,
