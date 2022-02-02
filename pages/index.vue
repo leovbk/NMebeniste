@@ -1,24 +1,29 @@
 <template>
   <div id="home">
     <section id="bg01">
-      <img id="home-bg01" src="~/assets/images/woodstock.jpg" alt="" />
+      <div id="home-bg01-container">
+        <img id="home-bg01" src="~/assets/images/woodstock.jpg" alt="" />
+        <div class="layerWhite"></div>
+      </div>
+
       <div id="text-bg01">
         <div id="title"><h1>nicolas michaud</h1></div>
         <div class="line"></div>
         <p class="subtitle fontAvenir">Artisan Eco-responsable</p>
-        <!-- <p class="subtitle fontAvenir">Responsable</p> -->
       </div>
     </section>
     <section id="home-text">
       <div id="home-text-container">
-        <h2>Une ébénisterie responsable, durable, qui crée du lien</h2>
+        <h2 id="homeTextH2">
+          Une ébénisterie responsable, durable, qui crée du lien
+        </h2>
         <br />
-        <h1>
+        <h1 id="homeTextH1">
           "L'ébénisterie c'est également une manière de faire, de vivre, de
           concevoir"
         </h1>
         <br />
-        <p>
+        <p id="homeTextP">
           Cela ce traduit par un choix des produits et des fournisseurs, une
           gestion responsable de nos déchets à travers le don et le recyclage,
           une utilisation raisonnée de nos ressources en eau et en énergie, un
@@ -76,6 +81,9 @@
 </template>
 
 <script>
+import { introAnim } from '@/assets/animations/introAnim'
+import { scrollAnimHome } from '@/assets/animations/scrollAnimHome'
+
 export default {
   name: 'Home',
 
@@ -104,6 +112,10 @@ export default {
   },
 
   mounted() {
+    window.scrollTo(0, 0)
+    introAnim()
+    scrollAnimHome()
+
     this.launchInterval()
 
     const parallax = document.querySelector('#pratique')
@@ -138,6 +150,14 @@ export default {
 </script>
 
 <style scoped>
+.layerWhite {
+  position: absolute;
+  background-color: rgb(241, 243, 242);
+  height: 600px;
+  width: 100vw;
+  top: 600px;
+  z-index: 0;
+}
 #bg01 {
   position: relative;
 }
@@ -145,6 +165,7 @@ export default {
   height: 600px;
   width: 100%;
   object-fit: cover;
+  z-index: -1;
 }
 
 #text-bg01 {
@@ -193,6 +214,10 @@ export default {
   font-family: 'Cormorant Garamond', serif;
   font-size: medium;
   overflow: hidden;
+}
+
+#home-text-container {
+  z-index: 3;
 }
 
 #home-text-container h2 {
@@ -251,6 +276,7 @@ export default {
   background-color: #413636;
 
   /* border-radius: 50%; */
+
   z-index: 2000;
   cursor: pointer;
   margin: 5px;
@@ -280,8 +306,8 @@ export default {
   font-family: 'Cormorant Garamond', serif;
   width: 70vw;
   font-size: 22px;
-  background-color: rgba(65, 54, 54, 0.6);
-  backdrop-filter: blur(2px);
+  background-color: rgba(65, 54, 54, 0.3);
+  backdrop-filter: blur(5px);
   padding: 40px;
 }
 
@@ -289,9 +315,15 @@ export default {
   display: grid;
 
   /* width: 100vw; */
+
   height: 400px;
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
+}
+
+#link-container p {
+  padding: 20px 40px;
+  border: 1px solid hsla(137, 8%, 95%, 1);
 }
 
 .home-section-link {
@@ -364,7 +396,7 @@ export default {
     grid-template-columns: none;
   }
 
-  #link-container > a {
+  #link-container p {
     max-height: 300px;
   }
 
