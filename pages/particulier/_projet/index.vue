@@ -35,8 +35,8 @@
     </section>
     <Caroussel
       v-if="carousselVisible"
-      :photosCarou="photos"
-      :currentPhoto="currentPhoto"
+      :photos-carou="photos"
+      :current-photo="currentPhoto"
       @test-click="carousselVisible = false"
     />
   </div>
@@ -44,6 +44,16 @@
 
 <script>
 export default {
+  async asyncData({ $prismic, error, store }) {
+    const documentPar = await $prismic.api.query(
+      $prismic.predicates.at('document.type', 'particulier')
+    )
+    const projectsDataPar = []
+    for (let i = 0; i < documentPar.results.length; i++) {
+      projectsDataPar.push(documentPar.results[i])
+    }
+    store.dispatch('setProjectsDataPar', projectsDataPar)
+  },
   data() {
     return {
       carousselVisible: false,
@@ -51,7 +61,7 @@ export default {
     }
   },
   computed: {
-    allPrismic() {
+    projectsDataPar() {
       return this.$store.getters.projectsDataPar
     },
 
@@ -59,12 +69,12 @@ export default {
       return this.$route.params.projet
     },
 
-    currentProjetIndex() {
-      return this.$route.params.index
-    },
-
     currentProjetData() {
-      return this.allPrismic[this.currentProjetIndex].data
+      /** @type {{ uid: string, data: Record<string, any> }[]} */
+      const projects = this.projectsDataPar
+
+      return projects.find((projet) => projet.uid === this.currentProjetId)
+        ?.data
     },
 
     titre() {

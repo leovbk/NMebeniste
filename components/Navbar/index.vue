@@ -174,8 +174,8 @@ export default {
 }
 
 #line-container {
-  width: 70px;
-  height: 60px;
+  width: 60px;
+  height: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -194,11 +194,11 @@ export default {
 }
 
 #menu-burger .line-burger:nth-child(2) {
-  top: 25px;
+  top: 20px;
 }
 
 #menu-burger .line-burger:nth-child(3) {
-  top: 50px;
+  top: 40px;
 }
 
 @media (max-width: 850px) {
@@ -221,8 +221,10 @@ export default {
   }
 }
 
-/* .btn-nav a:hover,
-.btn-nav a:focus {
-  border-bottom: 1px solid #413636;
-} */
+@media (max-width: 450px) {
+  #logo {
+    height: 90px;
+    margin: 25px 25px 25px 15px;
+  }
+}
 </style>

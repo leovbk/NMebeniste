@@ -35,9 +35,9 @@
     </section>
     <Caroussel
       v-if="carousselVisible"
+      :current-photo="currentPhoto"
+      :photos-carou="photos"
       @test-click="carousselVisible = false"
-      :currentPhoto="currentPhoto"
-      :photosCarou="photos"
     />
   </div>
 </template>
@@ -52,6 +52,8 @@ export default {
     for (let i = 0; i < documentPro.results.length; i++) {
       projectsDataPro.push(documentPro.results[i])
     }
+
+    console.log('projectsDataPro PROJECTico-michaud.prismic.i', projectsDataPro)
     store.dispatch('setProjectsDataPro', projectsDataPro)
   },
   data() {
@@ -61,7 +63,7 @@ export default {
     }
   },
   computed: {
-    allPrismic() {
+    projectsDataPro() {
       return this.$store.getters.projectsDataPro
     },
 
@@ -69,12 +71,12 @@ export default {
       return this.$route.params.projet
     },
 
-    currentProjetIndex() {
-      return this.$route.params.index
-    },
-
     currentProjetData() {
-      return this.allPrismic[this.currentProjetIndex].data
+      /** @type {{ uid: string, data: Record<string, any> }[]} */
+      const projects = this.projectsDataPro
+
+      return projects.find((projet) => projet.uid === this.currentProjetId)
+        ?.data
     },
 
     titre() {

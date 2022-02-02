@@ -6,7 +6,7 @@
           <nuxt-link
             :to="{
               name: 'professionnel-projet',
-              params: { projet: url, index: i },
+              params: { projet: url },
             }"
           >
             <div
@@ -38,6 +38,7 @@ export default {
     for (let i = 0; i < documentPro.results.length; i++) {
       projectsDataPro.push(documentPro.results[i])
     }
+    console.log('projectsDataPro PRO', projectsDataPro)
     store.dispatch('setProjectsDataPro', projectsDataPro)
   },
 

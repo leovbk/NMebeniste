@@ -45,17 +45,6 @@
       </div>
     </section>
 
-    <section id="pratique">
-      <p class="text-pratique">
-        Je suis ingénieur généraliste de formation, diplômé de l’école des
-        Mines, et j’ai débuté ma carrière dans l’industrie, sur des postes
-        supports dans l’automobile et l’aéronautique. Rapidement, j’ai souhaité
-        une voie différente. Plus éloignée du cloisonnement systémique et rigide
-        qu’impose actuellement l’industrie en France. Plus proche de mes
-        aspirations personnelles, de mes valeurs, de mes racines.
-      </p>
-    </section>
-
     <section id="link-section">
       <div id="link-container">
         <nuxt-link
@@ -72,6 +61,17 @@
         >
       </div>
     </section>
+
+    <section id="pratique">
+      <p class="text-pratique">
+        Je suis ingénieur généraliste de formation, diplômé de l’école des
+        Mines, et j’ai débuté ma carrière dans l’industrie, sur des postes
+        supports dans l’automobile et l’aéronautique. Rapidement, j’ai souhaité
+        une voie différente. J’ai débuté ma carrière dans l’industrie, sur des
+        postes supports dans l’automobile et l’aéronautique. Rapidement, j’ai
+        souhaité une voie différente.
+      </p>
+    </section>
   </div>
 </template>
 
@@ -80,15 +80,19 @@ export default {
   name: 'Home',
 
   async asyncData({ $prismic, error }) {
-    const prismicSlideShow = (await $prismic.api.getSingle('slideshow')).data
-      .imagesslide
+    try {
+      const prismicSlideShow = (await $prismic.api.getSingle('slideshow')).data
+        .imagesslide
 
-    const slidePictures = []
-    for (let i = 0; i < prismicSlideShow.length; i++) {
-      slidePictures.push(prismicSlideShow[i].images.url)
+      const slidePictures = []
+      for (let i = 0; i < prismicSlideShow.length; i++) {
+        slidePictures.push(prismicSlideShow[i].images.url)
+      }
+      console.log(slidePictures)
+      return { slidePictures }
+    } catch (error) {
+      console.error(error)
     }
-    console.log(slidePictures)
-    return { slidePictures }
   },
 
   data() {
@@ -107,7 +111,7 @@ export default {
 
     window.addEventListener('scroll', () => {
       parallax.style.backgroundPositionY =
-        -(window.scrollY - rectPratique.top + 200) / 2 + 'px'
+        -(window.scrollY - rectPratique.top + 100) / 2 + 'px'
     })
   },
 
@@ -156,10 +160,7 @@ export default {
   align-items: center;
   justify-content: center;
   color: hsla(137, 8%, 95%, 1);
-
-  /* backdrop-filter: blur(3px); */
-
-  /* box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6); */
+  backdrop-filter: blur(3px);
 }
 
 #title h1 {
@@ -168,6 +169,7 @@ export default {
   font-weight: 100;
   margin-bottom: 0;
   text-align: center;
+  padding: 0 30px 0 30px;
 }
 
 .subtitle {
@@ -279,16 +281,17 @@ export default {
   width: 70vw;
   font-size: 22px;
   background-color: rgba(65, 54, 54, 0.6);
-
-  /* backdrop-filter: blur(2px); */
-  padding: 60px;
+  backdrop-filter: blur(2px);
+  padding: 40px;
 }
 
 #link-container {
   display: grid;
-  width: 100vw;
+
+  /* width: 100vw; */
   height: 400px;
   grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
 }
 
 .home-section-link {
@@ -296,77 +299,29 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-position: center;
-  background-size: 100%;
   color: hsla(137, 8%, 95%, 1);
-  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 700ms cubic-bezier(0.4, 0, 0.2, 1);
   font-family: Avenir-Next-LT, sans-serif;
-  font-size: xxx-large;
+  font-size: 3em;
   flex-wrap: wrap;
   text-decoration: none;
+  overflow: hidden;
 }
-
-.home-section-link.p {
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* 
-.grid-link-text {
-  color: #413636;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 100px;
-  text-align: center;
-} */
 
 #link-particulier {
-  background-image: url('~/assets/images/Particulier.jpg');
-  background-size: cover;
+  background-color: hsla(137, 22%, 25%, 1);
   position: relative;
-
-  /* margin: 20px 10px 20px 20px; */
-}
-
-#link-particulier::before {
-  background-color: rgb(65, 54, 54);
-  opacity: 0;
-  content: '';
-  display: block;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  transition: all 0.7s;
-}
-
-#link-particulier:hover::before {
-  opacity: 0.4;
+  overflow: hidden;
 }
 
 #link-pro {
   position: relative;
-  background-image: url('~/assets/images/Professionnel.jpg');
-  background-size: cover;
-}
-
-#link-pro::before {
-  background-color: rgb(65, 54, 54);
-  opacity: 0;
-  content: '';
-  display: block;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  transition: all 0.7s;
-}
-
-#link-pro:hover::before {
-  opacity: 0.4;
+  background-color: #413636;
+  overflow: hidden;
 }
 
 .home-section-link:hover {
-  font-size: 320%;
+  font-size: 4em;
   margin: 0;
 }
 
@@ -407,6 +362,10 @@ export default {
     width: 100vw;
     height: 600px;
     grid-template-columns: none;
+  }
+
+  #link-container > a {
+    max-height: 300px;
   }
 
   .text-pratique {

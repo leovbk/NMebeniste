@@ -46,7 +46,10 @@ export default {
   //   next()
   // },
 
-  props: ['photosCarou', 'currentPhoto'],
+  props: {
+    photosCarou: { type: Array, required: true },
+    currentPhoto: { type: Number, default: undefined },
+  },
 
   data() {
     return {
@@ -59,7 +62,7 @@ export default {
 
     // trigger
 
-    function setSection(newSection) {
+    const setSection = (newSection) => {
       if (newSection !== currentSection) {
         gsap.to(currentSection, { scale: 0.8, autoAlpha: 0 })
         gsap.to(newSection, { scale: 1, autoAlpha: 1 })
