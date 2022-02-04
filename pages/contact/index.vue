@@ -69,7 +69,51 @@
   </div>
 </template>
 <script>
-export default {}
+import { gsap } from 'gsap'
+import { contactAnim } from '@/assets/animations/contactAnim'
+export default {
+  beforeRouteLeave(to, from, next) {
+    const tlContactOut = gsap.timeline()
+
+    tlContactOut.to('.button1', {
+      opacity: 0,
+    })
+    tlContactOut.to(
+      '.input_form',
+      {
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.5,
+        x: -60,
+      },
+      '-=0.3'
+    )
+    tlContactOut.to(
+      '.etiquette',
+      {
+        opacity: 0,
+        stagger: 0.3,
+        duration: 0.5,
+      },
+      '-=0.9'
+    )
+    tlContactOut.to(
+      '#form_container',
+      {
+        opacity: 0,
+        duration: 0.6,
+      },
+      '-=1'
+    )
+
+    tlContactOut.call(next)
+  },
+  name: 'Contact',
+
+  mounted() {
+    contactAnim()
+  },
+}
 </script>
 
 <style scoped>
@@ -80,10 +124,12 @@ export default {}
   background-image: url('@/assets/images/BG-CONTACT.jpg');
   background-size: cover;
   background-position: center;
+  height: calc(100vh - 280px);
 }
 .contact {
   overflow: overlay;
-  margin-top: 80px;
+
+  /* margin-top: 80px; */
 }
 
 #contact-form {
@@ -145,21 +191,21 @@ textarea {
   width: 260px;
   height: 34px;
   margin-top: 20px;
-  background-color: hsla(137, 8%, 95%, 1);
+  background-color: rgb(241, 243, 242);
   position: relative;
   border: hidden;
   font-family: Avenir-Next-LT, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: large;
-  color: hsla(137, 22%, 25%, 1);
+  color: rgb(50, 78, 58);
   padding: 0;
   transition: all 150ms ease-in-out;
   cursor: pointer;
 }
 
 .button1:hover {
-  background-color: hsla(137, 22%, 25%, 1);
+  background-color: rgb(50, 78, 58);
   color: hsla(137, 8%, 95%, 1);
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
 }

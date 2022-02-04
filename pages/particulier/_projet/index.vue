@@ -5,17 +5,35 @@
 
       <div class="all-text-description">
         <PrismicRichText id="description" :field="description" />
-        <h3 class="etiquette-titre">Lieu</h3>
-        <PrismicRichText :field="lieu" />
-        <br />
-        <h3 class="etiquette-titre">Calendrier</h3>
-        <PrismicRichText :field="phase" />
-        <br />
-        <h3 class="etiquette-titre">Matériaux utilisés</h3>
-        <PrismicRichText :field="essence" />
-        <br />
-        <h3 class="etiquette-titre">Finition</h3>
-        <PrismicRichText :field="finition" />
+        <h3 v-if="lieu.length != 0" class="etiquette-titre">Lieu</h3>
+        <PrismicRichText
+          v-if="lieu.length != 0"
+          class="descriptionPar"
+          :field="lieu"
+        />
+        <br v-if="lieu.length != 0" />
+        <h3 v-if="phase.length != 0" class="etiquette-titre">Calendrier</h3>
+        <PrismicRichText
+          v-if="phase.length != 0"
+          class="descriptionPar"
+          :field="phase"
+        />
+        <br v-if="phase.length != 0" />
+        <h3 v-if="essence.length != 0" class="etiquette-titre">
+          Matériaux utilisés
+        </h3>
+        <PrismicRichText
+          v-if="essence.length != 0"
+          class="descriptionPar"
+          :field="essence"
+        />
+        <br v-if="essence.length != 0" />
+        <h3 v-if="finition.length != 0" class="etiquette-titre">Finition</h3>
+        <PrismicRichText
+          v-if="finition.length != 0"
+          class="descriptionPar"
+          :field="finition"
+        />
       </div>
     </section>
 
@@ -43,7 +61,35 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { projetAnim } from '@/assets/animations/projetAnim'
+
 export default {
+  beforeRouteLeave(to, from, next) {
+    const tlProjetOut = gsap.timeline()
+
+    tlProjetOut.to('.img-projet', {
+      opacity: 0,
+    })
+    tlProjetOut.to(
+      ['.descriptionPar', '.etiquette-titre', '#description'],
+      {
+        opacity: 0,
+        yPercent: -50,
+        stagger: 0.1,
+      },
+      '-=0.5'
+    )
+    tlProjetOut.to(
+      '#titre-projet',
+      {
+        opacity: 0,
+        yPercent: -20,
+      },
+      '-=0.6'
+    )
+    tlProjetOut.call(next)
+  },
   async asyncData({ $prismic, error, store }) {
     const documentPar = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'particulier')
@@ -104,6 +150,11 @@ export default {
     photos() {
       return this.currentProjetData.photos
     },
+  },
+
+  mounted() {
+    console.log('lieu', this.lieu)
+    projetAnim()
   },
 }
 </script>

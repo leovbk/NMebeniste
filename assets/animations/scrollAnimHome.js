@@ -6,19 +6,19 @@ export const scrollAnimHome = () => {
   gsap.registerPlugin(ScrollTrigger)
 
   const scrollAnimH = gsap.timeline({
-    scrollTrigger: { trigger: '#home-text', start: 'top center' },
+    scrollTrigger: { trigger: '#home-text', start: 'top 85%' },
   })
-  scrollAnimH.from(['#homeTextP', '#homeTextH1', '#homeTextH2'], {
+  scrollAnimH.from(['#homeTextH2', '#homeTextH1', '#homeTextP'], {
     opacity: '0',
     yPercent: -100,
-    stagger: 0.2,
+    stagger: 0.4,
     duration: 1,
+    ease: 'power2.easeOut',
   })
 
-  // gsap.from(['#home-text-container'], {
-  //   scrollTrigger: '#home-text-container',
-  //   opacity: '0',
-  //   yPercent: 100,
-  //   duration: 2,
-  // })
+  gsap.from(['.text-pratique'], {
+    scrollTrigger: '.text-pratique',
+    opacity: '0',
+    duration: 2,
+  })
 }

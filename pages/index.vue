@@ -81,11 +81,19 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 import { introAnim } from '@/assets/animations/introAnim'
 import { scrollAnimHome } from '@/assets/animations/scrollAnimHome'
 
 export default {
   name: 'Home',
+
+  beforeRouteLeave(to, from, next) {
+    const tlHomeOut = gsap.timeline()
+
+    tlHomeOut.to('#home', { opacity: 0 })
+    tlHomeOut.call(next)
+  },
 
   async asyncData({ $prismic, error }) {
     try {
@@ -353,8 +361,18 @@ export default {
 }
 
 .home-section-link:hover {
-  font-size: 4em;
+  font-size: 3.5em;
   margin: 0;
+}
+
+@media (min-width: 1600px) {
+  .slideShow {
+    height: 800px;
+  }
+
+  #pratique {
+    height: 600px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -415,6 +433,12 @@ export default {
     font-size: 18px;
     padding: 20px;
     width: 100vw;
+  }
+  .home-section-link {
+    font-size: 2em;
+  }
+  .home-section-link:hover {
+    font-size: 2.5em;
   }
 }
 </style>

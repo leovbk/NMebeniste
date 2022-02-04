@@ -4,9 +4,10 @@ import { gsap } from 'gsap'
 let alreadyRun = false
 
 export const introAnim = () => {
+  const tlIntro = gsap.timeline()
   if (!alreadyRun) {
     alreadyRun = true
-    const tlIntro = gsap.timeline()
+
     tlIntro.set(['#text-bg01'], {
       opacity: 0,
     })
@@ -28,9 +29,13 @@ export const introAnim = () => {
       ease: 'back.out(1)',
     })
     tlIntro.from(['#text-bg01'], {
-      duration: 1.5,
+      duration: 1,
       opacity: 0,
-      delay: -1.5,
+      delay: -2.1,
+    })
+  } else {
+    tlIntro.from('#home', {
+      opacity: 0,
     })
   }
 }

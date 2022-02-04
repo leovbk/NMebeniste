@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="moisaicContainer">
+    <section class="mosaicContainer">
       <div class="projetMosaic">
         <div v-for="({ couverture, titre, url }, i) in projetsDataPro" :key="i">
           <nuxt-link
@@ -29,7 +29,15 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { realisationAnim } from '@/assets/animations/realisationAnim'
+
 export default {
+  beforeRouteLeave(to, from, next) {
+    const tlReaOut = gsap.timeline()
+    tlReaOut.to('.photo', { opacity: 0, stagger: 0.1, duration: 0.5 })
+    tlReaOut.call(next)
+  },
   async asyncData({ $prismic, error, store }) {
     const documentPro = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'professionnel')
@@ -45,11 +53,13 @@ export default {
   data() {
     return { projetsDataPro: [] }
   },
-
   computed: {
     allPrismic() {
       return this.$store.getters.projectsDataPro
     },
+  },
+  mounted() {
+    realisationAnim()
   },
 
   created() {
@@ -73,13 +83,12 @@ export default {
 
 <style scoped>
 .mosaicContainer {
-  position: relative;
-  margin-top: 80px;
   display: flex;
   justify-content: center;
   width: 100vw;
 }
 .projetMosaic {
+  max-width: 1200px;
   margin-left: 120px;
   margin-right: 120px;
   margin-top: 40px;
