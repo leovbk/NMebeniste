@@ -124,7 +124,7 @@ export default {
   background-image: url('@/assets/images/BG-CONTACT.jpg');
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 280px);
+  height: 100vh;
 }
 .contact {
   overflow: overlay;
@@ -242,6 +242,12 @@ textarea {
 .button1:focus {
   font-weight: normal;
 } */
+
+@media (min-height: 900px){
+  #form_container{
+    height: calc(100vh - 280px);
+  }
+}
 
 @media (max-width: 1000px) {
   .img-form {

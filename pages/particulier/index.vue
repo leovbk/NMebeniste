@@ -161,4 +161,32 @@ export default {
   opacity: 1;
   transition-duration: 0.4s;
 }
+
+@media (max-width: 900px){
+  .projetMosaic {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+}
+
+@media (max-width: 770px){
+  .projetMosaic {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.photo {
+  width: 100vw;
+  height: 350px;
+}
+}
+
+@media (max-width: 400px){
+
+.photo {
+  width: 100vw;
+  height: 250px;
+}
+}
+
 </style>
