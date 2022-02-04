@@ -149,7 +149,7 @@ export default {
 
 #description {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: 100;
   margin-bottom: 30px;
 }
@@ -157,7 +157,7 @@ export default {
 .etiquette-titre {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.5;
   text-decoration: underline;
 
@@ -192,6 +192,12 @@ export default {
   background-position: center;
   flex-grow: 1;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  #description {
+    font-size: 2em;
+  }
 }
 
 @media (max-width: 850px) {

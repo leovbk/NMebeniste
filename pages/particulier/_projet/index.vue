@@ -182,7 +182,7 @@ export default {
 .etiquette-titre {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.5;
   text-decoration: underline;
 
