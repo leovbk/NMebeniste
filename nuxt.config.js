@@ -110,6 +110,12 @@ export default {
         sizes: '16x16',
         href: '/icons/favicon-16x16.png',
       },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '96x96',
+        href: '/favicon-96x96.png',
+      },
     ],
   },
 
