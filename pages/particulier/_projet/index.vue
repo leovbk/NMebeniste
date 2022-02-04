@@ -219,6 +219,38 @@ export default {
   cursor: pointer;
 }
 
+@media (max-width: 850px) {
+  .all-text-description {
+    margin: 40px 60px;
+  }
+  #titre-projet {
+    font-size: 2.5em;
+  }
+
+  #description {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 550px) {
+  .img-projet {
+    width: 100vw;
+    height: 300px;
+  }
+
+  #titre-projet {
+    font-size: 1.8em;
+  }
+
+  #description {
+    font-size: 1em;
+  }
+
+  .all-text-description p {
+    font-size: 1em !important;
+  }
+}
+
 /* @media (max-width: 1300px) {
   #gallery-container img {
     width: 400px;
