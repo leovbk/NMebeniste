@@ -9,12 +9,12 @@
       <input
         type="hidden"
         name="_next"
-        value="http://leovbk.github.io/mbstudio-nuxt/contact/success"
+        value="http://192.168.1.13:3000/contact/success"
       />
       <input
         type="hidden"
         name="_subject"
-        value="Salut Gomar, c'est le site qui te parles, tu as un nouveau message"
+        value="Yo Nico, c'est le site qui te parles, tu as un nouveau message"
       />
       <input type="hidden" name="_ captcha" value="false" />
       <input type="hidden" name="_template" value="box" />
@@ -72,6 +72,8 @@
 import { gsap } from 'gsap'
 import { contactAnim } from '@/assets/animations/contactAnim'
 export default {
+  name: 'Contact',
+
   beforeRouteLeave(to, from, next) {
     const tlContactOut = gsap.timeline()
 
@@ -108,7 +110,6 @@ export default {
 
     tlContactOut.call(next)
   },
-  name: 'Contact',
 
   mounted() {
     contactAnim()
@@ -128,8 +129,6 @@ export default {
 }
 .contact {
   overflow: overlay;
-
-  /* margin-top: 80px; */
 }
 
 #contact-form {
@@ -161,8 +160,6 @@ label {
   letter-spacing: 1px;
   font-size: large;
   color: hsla(137, 8%, 95%, 1);
-
-  /* font-weight: bold; */
 }
 
 textarea {
@@ -179,8 +176,6 @@ textarea {
 #contact-form input {
   border-radius: 0;
   border: hidden;
-
-  /* border: 1px solid #252525; */
 }
 
 .div_btn {
@@ -210,41 +205,8 @@ textarea {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
 }
 
-/* .button1::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 100%;
-  border-bottom: solid 1px #212121;
-  transform: scaleX(0);
-  transition: transform 500ms ease-in-out;
-}
-.button1:hover::before {
-  transform: scaleX(1);
-}
-
-.button1::after {
-  display: block;
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-bottom: solid 1px #212121;
-  transform: scaleX(0);
-  transition: transform 500ms ease-in-out;
-}
-.button1:hover::after {
-  transform: scaleX(1);
-}
-
-.button1:hover,
-.button1:focus {
-  font-weight: normal;
-} */
-
-@media (min-height: 900px){
-  #form_container{
+@media (min-height: 900px) {
+  #form_container {
     height: calc(100vh - 280px);
   }
 }

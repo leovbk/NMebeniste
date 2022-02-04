@@ -15,19 +15,19 @@
     <section id="home-text">
       <div id="home-text-container">
         <h2 id="homeTextH2">
-          Une ébénisterie responsable, durable, qui crée du lien
+          La vision prônée au sein de l’atelier partagé : une ébénisterie
+          responsable, durable, qui crée du lien.
         </h2>
         <br />
         <h1 id="homeTextH1">
-          "L'ébénisterie c'est également une manière de faire, de vivre, de
-          concevoir"
+          "C'est également une manière de faire, de vivre, de concevoir"
         </h1>
         <br />
         <p id="homeTextP">
-          Cela ce traduit par un choix des produits et des fournisseurs, une
-          gestion responsable de nos déchets à travers le don et le recyclage,
-          une utilisation raisonnée de nos ressources en eau et en énergie, un
-          atelier comme lieu d'échange.
+          L’attention est apportée sur le choix des matières premières et des
+          fournisseurs ; l’utilisation raisonnée des ressources en énergie et en
+          eau ; et la gestion raisonnée des biens et des déchets à travers le
+          don et le recyclage.
         </p>
       </div>
     </section>
@@ -69,12 +69,13 @@
 
     <section id="pratique">
       <p class="text-pratique">
-        Je suis ingénieur généraliste de formation, diplômé de l’école des
-        Mines, et j’ai débuté ma carrière dans l’industrie, sur des postes
-        supports dans l’automobile et l’aéronautique. Rapidement, j’ai souhaité
-        une voie différente. J’ai débuté ma carrière dans l’industrie, sur des
-        postes supports dans l’automobile et l’aéronautique. Rapidement, j’ai
-        souhaité une voie différente.
+        Le bois massif est constitué d’essences locales certifiées FSC et PEFC
+        et d’un panel d’essences issu de seconde main ou de fruitiers de la
+        région. Les produits dérivés et les produits de finitions sont
+        sélectionnés avec soin : les médiums et agglomérés sont exclus
+        (émanations de colle et de solvant), les produits à base aqueuse sont
+        privilégiés. Aujourd’hui je m’exprime à travers la création de mobilier
+        et d’objet, mais aussi la restauration et la transformation de mobilier.
       </p>
     </section>
   </div>

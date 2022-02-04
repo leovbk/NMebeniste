@@ -22,12 +22,27 @@ export const introAnim = () => {
       delay: 0.2,
       ease: 'back.out(1)',
     })
+    tlIntro.from(
+      ['.line-burger'],
+      {
+        y: '-60px',
+        opacity: 0,
+        duration: 0.7,
+        stagger: -0.15,
+        ease: 'back.out(1)',
+      },
+      '-=1'
+    )
 
-    tlIntro.from(['.layerWhite'], {
-      top: 0,
-      duration: 3,
-      ease: 'back.out(1)',
-    })
+    tlIntro.from(
+      ['.layerWhite'],
+      {
+        top: 0,
+        duration: 3,
+        ease: 'back.out(1)',
+      },
+      '-=0.6'
+    )
     tlIntro.from(['#text-bg01'], {
       duration: 1,
       opacity: 0,

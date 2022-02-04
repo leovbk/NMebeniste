@@ -10,7 +10,7 @@ export const scrollAnimHome = () => {
   })
   scrollAnimH.from(['#homeTextH2', '#homeTextH1', '#homeTextP'], {
     opacity: '0',
-    yPercent: -100,
+    yPercent: -50,
     stagger: 0.4,
     duration: 1,
     ease: 'power2.easeOut',
