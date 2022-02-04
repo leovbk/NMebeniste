@@ -168,6 +168,8 @@ section:not(.first) {
   height: 10%;
   z-index: 300;
   cursor: pointer;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 #scrollDown {
