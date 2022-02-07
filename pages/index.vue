@@ -15,18 +15,18 @@
     <section id="home-text">
       <div id="home-text-container">
         <h2 id="homeTextH2">
-          La vision prônée au sein de l’atelier partagé : une ébénisterie
-          responsable, durable, qui crée du lien.
+          J'exerce à Roubaix, dans la métropole Lilloise, dans un atelier
+          partagé. La vision prônée au sein de l'atelier:
         </h2>
         <br />
         <h1 id="homeTextH1">
-          "C'est également une manière de faire, de vivre, de concevoir"
+          Une ébénisterie responsable, durable, qui crée du lien.
         </h1>
         <br />
         <p id="homeTextP">
-          L’attention est apportée sur le choix des matières premières et des
-          fournisseurs ; l’utilisation raisonnée des ressources en énergie et en
-          eau ; et la gestion raisonnée des biens et des déchets à travers le
+          L’attention est donc apportée sur le choix des matières premières et
+          des fournisseurs; l’utilisation raisonnée des ressources en énergie et
+          en eau; et la gestion raisonnée des biens et des déchets à travers le
           don et le recyclage.
         </p>
       </div>
@@ -50,6 +50,23 @@
       </div>
     </section>
 
+    <section id="pratique">
+      <div id="textPratiqueContainer">
+        <p class="text-pratique">
+          Le bois massif est constitué d’essences locales certifiées FSC et PEFC
+          et d’un panel d’essences issu de seconde main ou de fruitiers de la
+          région. Les produits dérivés et les produits de finitions sont
+          sélectionnés avec soin : les médiums et agglomérés sont exclus
+          (émanations de colle et de solvant), les produits à base aqueuse sont
+          privilégiés.
+        </p>
+        <h2 id="text-pratiqueh2">
+          Aujourd’hui je m’exprime à travers la création de mobilier et d’objet,
+          mais aussi la restauration et la transformation de mobilier.
+        </h2>
+      </div>
+    </section>
+
     <section id="link-section">
       <div id="link-container">
         <nuxt-link
@@ -65,18 +82,6 @@
           ><p>PROFESSIONNEL</p></nuxt-link
         >
       </div>
-    </section>
-
-    <section id="pratique">
-      <p class="text-pratique">
-        Le bois massif est constitué d’essences locales certifiées FSC et PEFC
-        et d’un panel d’essences issu de seconde main ou de fruitiers de la
-        région. Les produits dérivés et les produits de finitions sont
-        sélectionnés avec soin : les médiums et agglomérés sont exclus
-        (émanations de colle et de solvant), les produits à base aqueuse sont
-        privilégiés. Aujourd’hui je m’exprime à travers la création de mobilier
-        et d’objet, mais aussi la restauration et la transformation de mobilier.
-      </p>
     </section>
   </div>
 </template>
@@ -219,9 +224,9 @@ export default {
   margin: 30px 15% 30px 15%;
   height: auto;
   min-height: 200px;
-  text-align: center;
+  text-align: justify;
   font-family: 'Cormorant Garamond', serif;
-  font-size: medium;
+  font-size: x-large;
   overflow: hidden;
 }
 
@@ -239,6 +244,7 @@ export default {
 #home-text-container h1 {
   color: hsl(147, 4%, 59%);
   margin: 0;
+  text-align: center;
 }
 
 #home-text-container p {
@@ -297,8 +303,8 @@ export default {
 }
 
 #pratique {
-  height: 400px;
-  background-image: url('~/assets/images/BG-pratique.jpg');
+  height: 500px;
+  background-image: url('~/assets/images/BGPRATIQUE.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -310,14 +316,23 @@ export default {
   color: hsla(137, 8%, 95%, 1);
 }
 
-.text-pratique {
-  text-align: center;
+#textPratiqueContainer {
   font-family: 'Cormorant Garamond', serif;
   width: 70vw;
-  font-size: 22px;
   background-color: rgba(65, 54, 54, 0.3);
   backdrop-filter: blur(5px);
   padding: 40px;
+}
+
+.text-pratique {
+  text-indent: 5%;
+  text-align: justify;
+  font-size: 22px;
+}
+
+#text-pratiqueh2 {
+  text-align: center;
+  margin: 5%;
 }
 
 #link-container {
