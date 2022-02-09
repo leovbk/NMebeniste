@@ -37,7 +37,7 @@
 
 <script>
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default {
   // beforeRouteLeave(to, from, next) {
