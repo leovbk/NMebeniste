@@ -3,13 +3,13 @@
     <form
       id="contact-form"
       target="_blank"
-      action="https://formsubmit.co/leo.verbeke@hotmail.fr"
+      action="https://formsubmit.co/ nicolas.michaud@lilo.org"
       method="POST"
     >
       <input
         type="hidden"
         name="_next"
-        value="http://192.168.1.13:3000/contact/success"
+        value="https://leovbk.github.io/NMebeniste/contact/success/"
       />
       <input
         type="hidden"

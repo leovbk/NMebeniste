@@ -16,9 +16,16 @@ export const scrollAnimHome = () => {
     ease: 'power2.easeOut',
   })
 
-  gsap.from(['.text-pratique'], {
+  gsap.from(['.text-pratique', '#text-pratiqueh2'], {
     scrollTrigger: '.text-pratique',
     opacity: '0',
+    stagger: 0.5,
     duration: 2,
   })
+
+  // gsap.from(['#text-pratiqueh2'], {
+  //   scrollTrigger: '#text-pratiqueh2',
+  //   opacity: '0',
+  //   duration: 2,
+  // })
 }

@@ -224,7 +224,7 @@ export default {
   margin: 30px 15% 30px 15%;
   height: auto;
   min-height: 200px;
-  text-align: justify;
+  text-align: center;
   font-family: 'Cormorant Garamond', serif;
   font-size: x-large;
   overflow: hidden;
@@ -434,9 +434,14 @@ export default {
     max-height: 300px;
   }
 
-  .text-pratique {
+  #textPratiqueContainer {
+    width: 100%;
+  }
+
+  .text-pratique,
+  #text-pratiqueh2 {
     font-size: 20px;
-    padding: 40px;
+    padding: 20px;
   }
 }
 
@@ -445,10 +450,14 @@ export default {
     height: 300px;
   }
 
-  .text-pratique {
+  #pratique {
+    height: 700px;
+  }
+
+  .text-pratique,
+  #text-pratiqueh2 {
     font-size: 18px;
-    padding: 20px;
-    width: 100vw;
+    padding: 10px;
   }
   .home-section-link {
     font-size: 2em;
