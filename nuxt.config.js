@@ -24,7 +24,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      // { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
@@ -32,6 +32,7 @@ export default {
           'Nicolas MICHAUD Ebeniste responsable dans les Hauts-de-France',
       },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'viewport', content: 'width=device-width, user-scalable=no' },
     ],
     link: [
       {
