@@ -18,7 +18,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nicolasmichaudebeniste',
+    title: 'Nicolas Michaud Ebeniste',
     htmlAttrs: {
       lang: 'fr',
     },
@@ -29,10 +29,29 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Nicolas MICHAUD Ebeniste responsable dans les Hauts-de-France',
+          'Nicolas MICHAUD artisan ébéniste éco-responsable dans les Hauts-de-France. Découvrez mes réalisations et créations en bois.',
       },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'viewport', content: 'width=device-width, user-scalable=no' },
+      {
+        name: 'og:title',
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'NM Ebeniste',
+      },
+      {
+        name: 'og:description',
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Nicolas MICHAUD artisan ébéniste éco-responsable dans les Hauts-de-France.',
+      },
+      {
+        name: 'og:image',
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/FBIMG.jpg',
+      },
     ],
     link: [
       {

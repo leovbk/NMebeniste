@@ -73,13 +73,18 @@ export default {
       projectsDataPro.push(documentPro.results[i])
     }
 
-    console.log('projectsDataPro PROJECTico-michaud.prismic.i', projectsDataPro)
     store.dispatch('setProjectsDataPro', projectsDataPro)
   },
   data() {
     return {
       carousselVisible: false,
       currentPhoto: 0,
+    }
+  },
+
+  head() {
+    return {
+      title: this.titre[0].text,
     }
   },
 

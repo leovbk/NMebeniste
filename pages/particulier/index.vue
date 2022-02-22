@@ -52,15 +52,20 @@ export default {
   data() {
     return { projetsDataPar: [] }
   },
-
-  mounted() {
-    realisationAnim()
+  head() {
+    return {
+      title: 'Mes projets particuliers',
+    }
   },
 
   computed: {
     allPrismic() {
       return this.$store.getters.projectsDataPar
     },
+  },
+
+  mounted() {
+    realisationAnim()
   },
 
   created() {
@@ -162,31 +167,29 @@ export default {
   transition-duration: 0.4s;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .projetMosaic {
-  margin-left: 60px;
-  margin-right: 60px;
-}
+    margin-left: 60px;
+    margin-right: 60px;
+  }
 }
 
-@media (max-width: 770px){
+@media (max-width: 770px) {
   .projetMosaic {
-  margin-left: 30px;
-  margin-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .photo {
+    width: 100vw;
+    height: 350px;
+  }
 }
 
-.photo {
-  width: 100vw;
-  height: 350px;
+@media (max-width: 400px) {
+  .photo {
+    width: 100vw;
+    height: 250px;
+  }
 }
-}
-
-@media (max-width: 400px){
-
-.photo {
-  width: 100vw;
-  height: 250px;
-}
-}
-
 </style>

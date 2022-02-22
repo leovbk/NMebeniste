@@ -106,6 +106,12 @@ export default {
       currentPhoto: 0,
     }
   },
+
+  head() {
+    return {
+      title: this.titre[0].text,
+    }
+  },
   computed: {
     projectsDataPar() {
       return this.$store.getters.projectsDataPar
@@ -153,7 +159,6 @@ export default {
   },
 
   mounted() {
-    console.log('lieu', this.lieu)
     projetAnim()
   },
 }
