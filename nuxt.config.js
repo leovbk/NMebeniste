@@ -50,7 +50,7 @@ export default {
         name: 'og:image',
         hid: 'og:image',
         property: 'og:image',
-        content: '/FBIMG.jpg',
+        content: '/NMebeniste/FBIMG.jpg',
       },
     ],
     link: [
