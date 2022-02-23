@@ -1,8 +1,8 @@
 // à ajouter pour le deploiement !!!!!!!!
 
-// const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/NMebeniste/' : '/'
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/NMebeniste/' : '/'
 
-const routerBase = process.env.DEPLOY_ENV === '/'
+// const routerBase = process.env.DEPLOY_ENV === '/'
 
 // !!!!!!!!!!!!!!
 
