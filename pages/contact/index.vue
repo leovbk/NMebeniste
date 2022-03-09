@@ -3,7 +3,7 @@
     <form
       id="contact-form"
       target="_blank"
-      action="https://formsubmit.co/ nicolas.michaud@lilo.org"
+      action="https://formsubmit.co/nicolas.michaud@lilo.org"
       method="POST"
     >
       <input
