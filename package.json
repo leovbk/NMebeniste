@@ -18,7 +18,8 @@
     "gsap": "^3.8.0",
     "nuxt": "^2.15.7",
     "prismic-dom": "^2.2.6",
-    "push-dir": "^0.4.1"
+    "push-dir": "^0.4.1",
+    "vue-gtag": "^2.0.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

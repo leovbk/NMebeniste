@@ -162,7 +162,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // Google Analytics
-    '@nuxtjs/google-analytics',
+    // '@nuxtjs/google-analytics',
   ],
   modules: ['@nuxtjs/prismic'],
 
@@ -179,7 +179,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  googleAnalytics: {
-    id: 'G-BHXCDCVDJM',
-  },
+  // googleAnalytics: {
+  //   id: 'G-BHXCDCVDJM',
+  // },
 }
