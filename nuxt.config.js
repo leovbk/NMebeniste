@@ -150,7 +150,10 @@ export default {
   css: ['~/assets/css/global.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/prismic/prismicLinks', ssr: false }],
+  plugins: [
+    { src: '~/plugins/prismic/prismicLinks', ssr: false },
+    '~/plugins/gtag.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -161,9 +164,8 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // Google Analytics
-    // '@nuxtjs/google-analytics',
   ],
+
   modules: ['@nuxtjs/prismic'],
 
   prismic: {
@@ -178,8 +180,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-
-  // googleAnalytics: {
-  //   id: 'G-BHXCDCVDJM',
-  // },
 }

@@ -110,10 +110,11 @@ export default {
       for (let i = 0; i < prismicSlideShow.length; i++) {
         slidePictures.push(prismicSlideShow[i].images.url)
       }
-      console.log(slidePictures)
+      // console.log(slidePictures)
       return { slidePictures }
     } catch (error) {
-      console.error(error)
+      // console.error(error)
+      throw error()
     }
   },
 
